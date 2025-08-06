@@ -7,7 +7,7 @@ function criarHeroDesktop() {
     // Vídeo de fundo com poster fallback
     const video = document.createElement('video');
     video.id = 'background';
-    video.src = 'estadio.mp4';
+    video.src = 'estadio-web.webm';
     video.poster = 'fallback.jpg';
     video.autoplay = true;
     video.muted = true;
