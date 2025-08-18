@@ -4,19 +4,98 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Raphael Pitombo - Advocacia Desportiva</title>
-        <link rel="stylesheet" href="sessao_two.css">
-
+        
+        <!-- Meta tags importantes -->
+        <meta name="description" content="Dr. Raphael Pitombo - Advocacia especializada em Direito Desportivo. Defesa jurídica de atletas, clubes e entidades esportivas com excelência e estratégia.">
+        <meta name="keywords" content="advogado desportivo, direito esportivo, STJD, contratos atletas, transferências futebol">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        
+        <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="section_three.css">
-
+        
+        <!-- Preload de recursos críticos -->
+        <link rel="preload" href="estadio-web.webm" as="video" type="video/webm">
+        
+        <!-- CSS inline crítico para evitar FOUC -->
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+            
+            body {
+                background-color: #000;
+                color: #ede7de;
+                overflow-x: hidden;
+            }
+        </style>
     </head>
     <body>
-        <script src="bloqueio.js"></script>
-        <script src="scripts/section_one.js"></script>        
+        <script src="https://www.teamcriativa.com/SCRIPTS/logo.js"></script>
+        <!-- Seção 1: Hero/Header -->
+        <script src="scripts/section_one.js"></script>
+        
+        <!-- Seção 2: Sobre o Advogado -->
         <script src="scripts/section_two.js"></script>
+        
+        <!-- Seção 3: Áreas de Atuação -->
         <script src="scripts/section_three.js"></script>
+        
+        <!-- Seção 4: Blog/Notícias -->
+        <script src="scripts/section_four.js"></script>
+        
+        <!-- Seção 5: Dúvidas Frequentes -->
+        <script src="scripts/section_five.js"></script>
+        
+        <!-- Seção 6: Contatos -->
+        <script src="scripts/section_six.js"></script>
+        <script src="scripts/section_footer.js"></script>
 
+        <!-- Script de inicialização -->
+        <script>
+            // Lazy loading para imagens
+            document.addEventListener('DOMContentLoaded', function() {
+                const images = document.querySelectorAll('img[data-src]');
+                const imageObserver = new IntersectionObserver((entries, observer) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            const img = entry.target;
+                            img.src = img.dataset.src;
+                            img.removeAttribute('data-src');
+                            imageObserver.unobserve(img);
+                        }
+                    });
+                });
+                
+                images.forEach(img => imageObserver.observe(img));
+                
+                // Smooth scroll para navegação
+                const navLinks = document.querySelectorAll('nav a, .nav-link');
+                navLinks.forEach(link => {
+                    link.addEventListener('click', function(e) {
+                        const href = this.getAttribute('href');
+                        if (href && href.startsWith('#')) {
+                            e.preventDefault();
+                            const target = document.querySelector(href);
+                            if (target) {
+                                target.scrollIntoView({
+                                    behavior: 'smooth',
+                                    block: 'start'
+                                });
+                            }
+                        }
+                    });
+                });
+            });
+        </script>
+
+        <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  
     </body>
 </html>
+
+

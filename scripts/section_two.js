@@ -168,7 +168,7 @@
           </p>
           <div class="info">
             <div>
-              <span>+17</span>
+              <span>+18</span>
               <small>Anos de atuação jurídica</small>
             </div>
             <div>
@@ -177,7 +177,7 @@
             </div>
             <div>
               <span>CEDIN-MG</span>
-              <small>Pós-graduação em Direito Desportivo</small>
+              <small>Especialista em Direito Desportivo</small>
             </div>
             <div>
               <span>OAB/BA</span>

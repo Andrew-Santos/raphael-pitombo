@@ -129,7 +129,7 @@
       font-size: 50px;
       top: 50%;
       left: 50%;
-      transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%) !important;
       animation: fadeInUp 1s ease-out forwards;
       opacity: 0;
       text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
