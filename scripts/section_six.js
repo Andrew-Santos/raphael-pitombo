@@ -10,236 +10,411 @@
       --ouro: #ad875d;
     }
 
-    #contatos {
-      background: linear-gradient(135deg, var(--preto) 0%, var(--cinza) 100%);
-      color: var(--branco);
-      padding: 4rem 2rem;
-      font-family: 'Montserrat', sans-serif;
+    #blog {
+      background: linear-gradient(135deg, var(--branco) 0%, #f5f0e8 50%, var(--branco) 100%);
       width: 100%;
-    }
-
-    #contatos .container {
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    #contatos h2 {
-      font-size: 2.4rem;
-      font-weight: 700;
-      margin-bottom: 3rem;
-      color: var(--ouro);
-      text-align: center;
-    }
-
-    .contatos-grid {
-      display: grid;
-      grid-template-columns: 1fr 1.2fr;
-      gap: 3rem;
-      align-items: start;
-    }
-
-    .contatos-info {
+      min-height: 100vh;
       display: flex;
       flex-direction: column;
-      gap: 2rem;
-    }
-
-    .info-card {
-      background: rgba(173, 135, 93, 0.1);
-      padding: 2rem;
-      border-radius: 15px;
-      border-left: 4px solid var(--ouro);
-      transition: all 0.3s ease;
-    }
-
-    .info-card:hover {
-      background: rgba(173, 135, 93, 0.15);
-      transform: translateX(5px);
-    }
-
-    .info-card h3 {
-      font-size: 1.3rem;
-      color: var(--ouro);
-      margin-bottom: 1rem;
-      display: flex;
+      justify-content: center;
       align-items: center;
-      gap: 0.8rem;
+      position: relative;
+      overflow: hidden;
+      padding: 5rem 2rem;
     }
 
-    .info-card p {
-      font-size: 1rem;
-      line-height: 1.6;
-      margin-bottom: 0.8rem;
+    #blog::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: 
+        radial-gradient(circle at 15% 85%, rgba(139, 94, 60, 0.05) 0%, transparent 50%),
+        radial-gradient(circle at 85% 15%, rgba(173, 135, 93, 0.05) 0%, transparent 50%);
+      pointer-events: none;
     }
 
-    .info-card a {
-      color: var(--branco);
-      text-decoration: none;
-      transition: color 0.3s ease;
+    .blog-title {
+      font-size: 2.8rem;
+      font-weight: 700;
+      color: var(--preto);
+      font-family: 'Montserrat', sans-serif;
+      margin-bottom: 1rem;
+      text-align: center;
+      position: relative;
+      z-index: 2;
     }
 
-    .info-card a:hover {
-      color: var(--ouro);
+    .blog-title::after {
+      content: '';
+      position: absolute;
+      bottom: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100px;
+      height: 4px;
+      background: linear-gradient(90deg, var(--marrom), var(--ouro), var(--marrom));
+      border-radius: 2px;
     }
 
-    .social-links {
-      display: flex;
-      gap: 1rem;
-      margin-top: 1rem;
+    .blog-subtitle {
+      font-size: 1.1rem;
+      color: var(--cinza);
+      text-align: center;
+      margin-bottom: 3.5rem;
+      font-weight: 300;
+      position: relative;
+      z-index: 2;
     }
 
-    .social-link {
+    .carousel-container {
       display: flex;
       align-items: center;
       justify-content: center;
-      width: 50px;
-      height: 50px;
-      background: var(--marrom);
-      border-radius: 50%;
-      color: var(--branco);
-      text-decoration: none;
-      font-size: 1.2rem;
-      transition: all 0.3s ease;
+      gap: 1.5rem;
+      width: 100%;
+      height: 380px;
+      position: relative;
+      overflow: visible;
+      z-index: 2;
     }
 
-    .social-link:hover {
-      background: var(--ouro);
-      transform: translateY(-3px);
-      box-shadow: 0 6px 15px rgba(173, 135, 93, 0.3);
-    }
-
-    .formulario-container {
-      background: var(--branco);
-      padding: 2.5rem;
+    .news-card {
+      position: relative;
       border-radius: 20px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-    }
-
-    .formulario-container h3 {
-      font-size: 1.8rem;
-      color: var(--preto);
-      margin-bottom: 1.5rem;
-      text-align: center;
-    }
-
-    .form-group {
-      margin-bottom: 1.5rem;
-    }
-
-    .form-group label {
-      display: block;
-      margin-bottom: 0.5rem;
-      color: var(--preto);
-      font-weight: 600;
-      font-size: 0.95rem;
-    }
-
-    .form-group input,
-    .form-group select,
-    .form-group textarea {
-      width: 100%;
-      padding: 0.8rem 1rem;
-      border: 2px solid #e0e0e0;
-      border-radius: 8px;
-      font-family: 'Montserrat', sans-serif;
-      font-size: 1rem;
-      transition: all 0.3s ease;
+      overflow: hidden;
+      cursor: pointer;
+      transition: all 0.8s cubic-bezier(0.23, 1, 0.320, 1);
       background: white;
+      box-shadow: 0 10px 40px rgba(43, 31, 26, 0.1);
     }
 
-    .form-group input:focus,
-    .form-group select:focus,
-    .form-group textarea:focus {
-      outline: none;
-      border-color: var(--marrom);
-      box-shadow: 0 0 0 3px rgba(139, 94, 60, 0.1);
+    .news-card.small {
+      width: 350px;
+      height: 250px;
+      filter: blur(0.5px) brightness(0.8);
+      opacity: 0.8;
+      transform: scale(0.85);
     }
 
-    .form-group textarea {
-      resize: vertical;
-      min-height: 120px;
+    .news-card.small:hover {
+      filter: blur(0px) brightness(1);
+      opacity: 0.95;
+      transform: scale(0.9);
+      box-shadow: 0 15px 50px rgba(43, 31, 26, 0.15);
     }
 
-    .form-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1rem;
+    .news-card.large {
+      width: 500px;
+      height: 320px;
+      filter: blur(0px) brightness(1);
+      opacity: 1;
+      transform: scale(1);
+      z-index: 10;
+      box-shadow: 
+        0 20px 60px rgba(43, 31, 26, 0.2),
+        0 0 0 1px rgba(173, 135, 93, 0.1);
     }
 
-    .btn-enviar {
+    .news-card img {
       width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.8s ease;
+    }
+
+    .news-card:hover img {
+      transform: scale(1.08);
+    }
+
+    .news-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 50%;
+      background: linear-gradient(
+        to top,
+        rgba(43, 31, 26, 0.95) 0%,
+        rgba(43, 31, 26, 0.8) 30%,
+        rgba(43, 31, 26, 0.4) 60%,
+        transparent 100%
+      );
+      display: flex;
+      align-items: flex-end;
+      padding: 2rem 1.8rem;
+      transition: all 0.6s ease;
+    }
+
+    .news-card:hover .news-overlay {
+      background: linear-gradient(
+        to top,
+        rgba(139, 94, 60, 0.95) 0%,
+        rgba(139, 94, 60, 0.8) 30%,
+        rgba(139, 94, 60, 0.4) 60%,
+        transparent 100%
+      );
+    }
+
+    .news-content {
+      width: 100%;
+    }
+
+    .news-category {
+      display: inline-block;
+      background: var(--ouro);
+      color: var(--preto);
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 0.8rem;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    .news-title {
+      color: white;
+      font-size: 1.3rem;
+      font-weight: 600;
+      line-height: 1.3;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.7);
+      font-family: 'Montserrat', sans-serif;
+      margin: 0;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .news-card.small .news-title {
+      font-size: 1.1rem;
+      -webkit-line-clamp: 2;
+    }
+
+    .news-date {
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 0.85rem;
+      margin-top: 0.5rem;
+      font-weight: 300;
+    }
+
+    .carousel-indicators {
+      display: flex;
+      gap: 1rem;
+      margin-top: 3rem;
+      justify-content: center;
+      z-index: 2;
+      position: relative;
+    }
+
+    .indicator {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: rgba(139, 94, 60, 0.3);
+      cursor: pointer;
+      transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      border: 2px solid transparent;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .indicator::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      background: var(--ouro);
+      border-radius: 50%;
+      transition: all 0.4s ease;
+      transform: translate(-50%, -50%);
+    }
+
+    .indicator.active::before,
+    .indicator:hover::before {
+      width: 100%;
+      height: 100%;
+    }
+
+    .indicator.active {
+      background: var(--ouro);
+      transform: scale(1.3);
+      border-color: rgba(173, 135, 93, 0.3);
+      box-shadow: 0 0 0 3px rgba(173, 135, 93, 0.2);
+    }
+
+    .indicator:hover {
+      background: rgba(173, 135, 93, 0.6);
+      transform: scale(1.1);
+    }
+
+    .nav-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
       background: linear-gradient(135deg, var(--marrom), var(--ouro));
       color: white;
       border: none;
-      padding: 1rem 2rem;
-      border-radius: 10px;
-      font-family: 'Montserrat', sans-serif;
-      font-size: 1.1rem;
-      font-weight: 600;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
       cursor: pointer;
-      transition: all 0.3s ease;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
-
-    .btn-enviar:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 25px rgba(139, 94, 60, 0.3);
-    }
-
-    .btn-enviar:active {
-      transform: translateY(0);
-    }
-
-    .success-message {
-      display: none;
-      background: #4CAF50;
-      color: white;
-      padding: 1rem;
-      border-radius: 8px;
-      margin-top: 1rem;
-      text-align: center;
-    }
-
-    .icon {
       font-size: 1.4rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      z-index: 20;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: bold;
+      box-shadow: 
+        0 8px 25px rgba(139, 94, 60, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(10px);
+    }
+
+    .nav-arrow::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(135deg, transparent, rgba(255,255,255,0.1), transparent);
+      border-radius: 50%;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .nav-arrow:hover::before {
+      opacity: 1;
+    }
+
+    .nav-arrow:hover {
+      background: linear-gradient(135deg, var(--ouro), #c4956f);
+      transform: translateY(-50%) scale(1.1);
+      box-shadow: 
+        0 12px 35px rgba(173, 135, 93, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    }
+
+    .nav-arrow:active {
+      transform: translateY(-50%) scale(1.05);
+    }
+
+    .nav-arrow.prev {
+      left: 0;
+    }
+
+    .nav-arrow.next {
+      right: 0;
     }
 
     @media (max-width: 768px) {
-      #contatos {
-        padding: 3rem 1rem;
+      #blog {
+        padding: 4rem 1rem;
+        min-height: 80vh;
       }
 
-      #contatos h2 {
-        font-size: 2rem;
-        margin-bottom: 2rem;
+      .blog-title {
+        font-size: 2.2rem;
+        margin-bottom: 0.8rem;
       }
 
-      .contatos-grid {
-        grid-template-columns: 1fr;
-        gap: 2rem;
+      .blog-subtitle {
+        font-size: 1rem;
+        margin-bottom: 2.5rem;
       }
 
-      .formulario-container {
-        padding: 2rem;
-      }
-
-      .form-row {
-        grid-template-columns: 1fr;
-      }
-
-      .social-links {
+      .carousel-container {
+        height: 320px;
+        gap: 0;
         justify-content: center;
+      }
+
+      .news-card {
+        position: absolute;
+        transition: all 0.6s ease;
+      }
+
+      .news-card.small {
+        width: 300px;
+        height: 220px;
+        opacity: 0;
+        transform: scale(0.7);
+        pointer-events: none;
+        filter: blur(0px);
+      }
+
+      .news-card.large {
+        width: 100%;
+        height: 260px;
+        opacity: 1;
+        transform: scale(1);
+        filter: blur(0px);
+        z-index: 10;
+        position: relative;
+      }
+
+      .news-card.small.entering {
+        opacity: 0.4;
+        transform: translateX(80px) scale(0.8);
+      }
+
+      .news-card.small.exiting {
+        opacity: 0.4;
+        transform: translateX(-80px) scale(0.8);
+      }
+
+      .nav-arrow {
+        width: 50px;
+        height: 50px;
+        font-size: 1.1rem;
+      }
+
+      .nav-arrow.prev {
+        left: 0;
+      }
+
+      .nav-arrow.next {
+        right: 0;
+      }
+
+      .carousel-indicators {
+        margin-top: 2.5rem;
+        gap: 0.8rem;
+      }
+
+      .indicator {
+        width: 12px;
+        height: 12px;
+      }
+
+      .news-overlay {
+        padding: 1.5rem 1.5rem;
+      }
+
+      .news-title {
+        font-size: 1.1rem;
       }
     }
 
     @media (max-width: 480px) {
-      .info-card {
-        padding: 1.5rem;
+      .nav-arrow {
+        width: 45px;
+        height: 45px;
+        font-size: 1rem;
       }
 
-      .formulario-container {
-        padding: 1.5rem;
+      .news-card.large {
+        width: 95%;
+        height: 240px;
       }
     }
   `;
@@ -247,129 +422,59 @@
 
   // HTML
   const html = `
-    <section id="contatos">
-      <div class="container">
-        <h2>Entre em Contato</h2>
+    <section id="blog">
+      <h2 class="blog-title">Fique por dentro</h2>
+      <p class="blog-subtitle">Últimas novidades e insights do direito desportivo</p>
+      
+      <div class="carousel-container">
+        <!-- Seta de navegação esquerda -->
+        <button class="nav-arrow prev" onclick="blogCarousel.previousSlide()" aria-label="Notícia anterior">‹</button>
         
-        <div class="contatos-grid">
-          <div class="contatos-info">
-            <div class="info-card">
-              <h3>
-                <span class="icon">📍</span>
-                Localização
-              </h3>
-              <p>Feira de Santana - BA<br>
-              Centro Empresarial<br>
-              Atendimento presencial e online</p>
-            </div>
-
-            <div class="info-card">
-              <h3>
-                <span class="icon">📞</span>
-                Telefone & WhatsApp
-              </h3>
-              <p>
-                <a href="tel:+5575999999999">(75) 9 9999-9999</a><br>
-                <a href="tel:+5575333333333">(75) 3333-3333</a><br>
-                <small>Seg a Sex: 8h às 18h</small>
-              </p>
-            </div>
-
-            <div class="info-card">
-              <h3>
-                <span class="icon">📧</span>
-                E-mail
-              </h3>
-              <p>
-                <a href="mailto:contato@raphaelpitombo.adv.br">contato@raphaelpitombo.adv.br</a><br>
-                <a href="mailto:raphael@pitomboadv.com.br">raphael@pitomboadv.com.br</a>
-              </p>
-            </div>
-
-            <div class="info-card">
-              <h3>
-                <span class="icon">🌐</span>
-                Redes Sociais
-              </h3>
-              <p>Acompanhe nosso trabalho e fique por dentro das novidades do direito desportivo:</p>
-              <div class="social-links">
-                <a href="https://instagram.com/raphaelpitombo.adv" target="_blank" class="social-link" title="Instagram">
-                  📷
-                </a>
-                <a href="https://linkedin.com/in/raphaelpitombo" target="_blank" class="social-link" title="LinkedIn">
-                  💼
-                </a>
-                <a href="https://wa.me/5575999999999" target="_blank" class="social-link" title="WhatsApp">
-                  💬
-                </a>
-              </div>
+        <!-- Cards de notícias -->
+        <article class="news-card small" onclick="blogCarousel.goToNews(0)">
+          <img src="https://live.staticflickr.com/65535/54547723823_021b288a9d_5k.jpg" alt="Doping e Sanções">
+          <div class="news-overlay">
+            <div class="news-content">
+              <span class="news-category">Legislação</span>
+              <h3 class="news-title">Doping e Sanções: Análise da Legislação Vigente</h3>
+              <p class="news-date">14 de Agosto, 2025</p>
             </div>
           </div>
+        </article>
 
-          <div class="formulario-container">
-            <h3>Envie sua Dúvida</h3>
-            
-            <form id="contato-form">
-              <div class="form-row">
-                <div class="form-group">
-                  <label for="nome">Nome Completo *</label>
-                  <input type="text" id="nome" name="nome" required>
-                </div>
-                
-                <div class="form-group">
-                  <label for="telefone">Telefone/WhatsApp *</label>
-                  <input type="tel" id="telefone" name="telefone" required>
-                </div>
-              </div>
-
-              <div class="form-group">
-                <label for="email">E-mail *</label>
-                <input type="email" id="email" name="email" required>
-              </div>
-
-              <div class="form-row">
-                <div class="form-group">
-                  <label for="tipo-cliente">Você é:</label>
-                  <select id="tipo-cliente" name="tipo-cliente">
-                    <option value="">Selecione...</option>
-                    <option value="atleta">Atleta</option>
-                    <option value="clube">Clube/Entidade</option>
-                    <option value="treinador">Treinador/Staff</option>
-                    <option value="agente">Agente/Empresário</option>
-                    <option value="outro">Outro</option>
-                  </select>
-                </div>
-
-                <div class="form-group">
-                  <label for="urgencia">Urgência:</label>
-                  <select id="urgencia" name="urgencia">
-                    <option value="baixa">Baixa - Consulta geral</option>
-                    <option value="media">Média - Necessito orientação</option>
-                    <option value="alta">Alta - Situação urgente</option>
-                  </select>
-                </div>
-              </div>
-
-              <div class="form-group">
-                <label for="assunto">Assunto *</label>
-                <input type="text" id="assunto" name="assunto" placeholder="Ex: Contrato de jogador, Processo STJD, Transferência..." required>
-              </div>
-
-              <div class="form-group">
-                <label for="mensagem">Descreva sua situação *</label>
-                <textarea id="mensagem" name="mensagem" placeholder="Descreva detalhadamente sua dúvida ou situação jurídica..." required></textarea>
-              </div>
-
-              <button type="submit" class="btn-enviar">
-                Enviar Mensagem
-              </button>
-
-              <div id="success-message" class="success-message">
-                ✅ Mensagem enviada com sucesso! Retornaremos em breve.
-              </div>
-            </form>
+        <article class="news-card large" onclick="blogCarousel.goToNews(1)">
+          <img src="https://live.staticflickr.com/65535/54546607912_eec6d61fe4_5k.jpg" alt="Fair Play Financeiro">
+          <div class="news-overlay">
+            <div class="news-content">
+              <span class="news-category">CBF</span>
+              <h3 class="news-title">CBF Implementa Novas Regras de Fair Play Financeiro</h3>
+              <p class="news-date">12 de Agosto, 2025</p>
+            </div>
           </div>
-        </div>
+        </article>
+
+        <article class="news-card small" onclick="blogCarousel.goToNews(2)">
+          <img src="https://live.staticflickr.com/65535/54648407064_365b8dae17_5k.jpg" alt="Lei de Transferências">
+          <div class="news-overlay">
+            <div class="news-content">
+              <span class="news-category">Contratos</span>
+              <h3 class="news-title">Contrato de Jogador: Mudanças na Lei de Transferências</h3>
+              <p class="news-date">10 de Agosto, 2025</p>
+            </div>
+          </div>
+        </article>
+
+        <!-- Seta de navegação direita -->
+        <button class="nav-arrow next" onclick="blogCarousel.nextSlide()" aria-label="Próxima notícia">›</button>
+      </div>
+
+      <!-- Indicadores -->
+      <div class="carousel-indicators">
+        <span class="indicator" onclick="blogCarousel.goToSlide(0)" aria-label="Ir para notícia 1"></span>
+        <span class="indicator active" onclick="blogCarousel.goToSlide(1)" aria-label="Ir para notícia 2"></span>
+        <span class="indicator" onclick="blogCarousel.goToSlide(2)" aria-label="Ir para notícia 3"></span>
+        <span class="indicator" onclick="blogCarousel.goToSlide(3)" aria-label="Ir para notícia 4"></span>
+        <span class="indicator" onclick="blogCarousel.goToSlide(4)" aria-label="Ir para notícia 5"></span>
       </div>
     </section>
   `;
@@ -377,74 +482,268 @@
   // Adiciona no final do <body>
   document.body.insertAdjacentHTML("beforeend", html);
 
-  // Funcionalidades JavaScript
-  function inicializarContatos() {
-    const form = document.getElementById('contato-form');
-    const successMessage = document.getElementById('success-message');
+  // Objeto global para controlar o carousel
+  window.blogCarousel = {
+    // Dados das notícias (você substituirá por dados do banco)
+    newsData: [
+      {
+        id: 1,
+        title: "Flávio Dino determina que PF investigue fraudes em jogos de futebol",
+        category: "Investigação",
+        image: "https://imagens.ebc.com.br/aw-I_Y2OkUmA5Cdd6ZJmEYb1tko=/1170x700/smart/https://agenciabrasil.ebc.com.br/sites/default/files/thumbnails/image/trofeu_campeonato_brasileiro_serie_a.jpeg?itok=uQmZd0io",
+        date: "15 de Agosto, 2025",
+        url: "/noticia/1"
+      },
+      {
+        id: 2,
+        title: "Contrato de Jogador: Mudanças na Lei de Transferências",
+        category: "Contratos",
+        image: "https://live.staticflickr.com/65535/54648407064_365b8dae17_5k.jpg",
+        date: "10 de Agosto, 2025",
+        url: "/noticia/2"
+      },
+      {
+        id: 3,
+        title: "Tribunal de Arbitragem do Esporte: Casos Recentes",
+        category: "Tribunais",
+        image: "https://live.staticflickr.com/65535/54692778271_c468506013_5k.jpg",
+        date: "08 de Agosto, 2025",
+        url: "/noticia/3"
+      },
+      {
+        id: 4,
+        title: "Mercado do futebol exige atenção jurídica: SAFs, imagem de atletas e apostas",
+        category: "SAFs",
+        image: "https://newr7-r7-prod.web.arc-cdn.net/resizer/v2/NRKPQJEA4VCR5HKS4JGAXVKELU.jpeg?auth=0b651a971ca36f96a1b22c9716c35258af47961a1f31948c1c7992ccb858a30c&width=1600&height=896",
+        date: "05 de Agosto, 2025",
+        url: "/noticia/4"
+      },
+      {
+        id: 5,
+        title: "Doping e Sanções: Análise da Legislação Vigente",
+        category: "Legislação",
+        image: "https://live.staticflickr.com/65535/54547723823_021b288a9d_5k.jpg",
+        date: "14 de Agosto, 2025",
+        url: "/noticia/5"
+      }
+    ],
 
-    if (form) {
-      form.addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        // Simula o envio do formulário
-        const btnEnviar = form.querySelector('.btn-enviar');
-        const originalText = btnEnviar.textContent;
-        
-        btnEnviar.textContent = 'Enviando...';
-        btnEnviar.disabled = true;
-        
-        // Simula delay de envio
-        setTimeout(() => {
-          successMessage.style.display = 'block';
-          form.reset();
-          btnEnviar.textContent = originalText;
-          btnEnviar.disabled = false;
+    currentIndex: 0,
+    totalNews: 5,
+    autoPlayInterval: null,
+    isTransitioning: false,
+
+    updateCarousel() {
+      if (this.isTransitioning) return;
+      
+      const cards = document.querySelectorAll('.news-card');
+      const indicators = document.querySelectorAll('.indicator');
+      const isMobile = window.innerWidth <= 768;
+      
+      this.isTransitioning = true;
+      
+      if (isMobile) {
+        // Versão mobile: apenas um card visível por vez
+        cards.forEach((card, index) => {
+          const newsItem = this.newsData[this.currentIndex];
           
-          // Esconde a mensagem após 5 segundos
-          setTimeout(() => {
-            successMessage.style.display = 'none';
-          }, 5000);
-        }, 1500);
-      });
-    }
-
-    // Máscara para telefone
-    const telefoneInput = document.getElementById('telefone');
-    if (telefoneInput) {
-      telefoneInput.addEventListener('input', function(e) {
-        let value = e.target.value.replace(/\D/g, '');
-        
-        if (value.length <= 11) {
-          if (value.length <= 2) {
-            value = value.replace(/(\d{0,2})/, '($1');
-          } else if (value.length <= 7) {
-            value = value.replace(/(\d{2})(\d{0,5})/, '($1) $2');
+          if (index === 1) { // Card central
+            this.updateCardContent(card, newsItem, this.currentIndex);
+            card.className = 'news-card large';
           } else {
-            value = value.replace(/(\d{2})(\d{5})(\d{0,4})/, '($1) $2-$3');
+            card.className = 'news-card small';
           }
-        }
+        });
+      } else {
+        // Versão desktop: três cards visíveis
+        const leftIndex = (this.currentIndex - 1 + this.totalNews) % this.totalNews;
+        const centerIndex = this.currentIndex;
+        const rightIndex = (this.currentIndex + 1) % this.totalNews;
         
-        e.target.value = value;
+        const positions = [leftIndex, centerIndex, rightIndex];
+        
+        cards.forEach((card, index) => {
+          const newsIndex = positions[index];
+          const newsItem = this.newsData[newsIndex];
+          
+          this.updateCardContent(card, newsItem, newsIndex);
+          card.className = 'news-card ' + (index === 1 ? 'large' : 'small');
+        });
+      }
+      
+      // Atualiza indicadores
+      indicators.forEach((indicator, index) => {
+        indicator.classList.toggle('active', index === this.currentIndex);
+      });
+      
+      // Reset transition flag
+      setTimeout(() => {
+        this.isTransitioning = false;
+      }, 500);
+    },
+
+    updateCardContent(card, newsItem, newsIndex) {
+      const img = card.querySelector('img');
+      const title = card.querySelector('.news-title');
+      const category = card.querySelector('.news-category');
+      const date = card.querySelector('.news-date');
+      
+      if (img) {
+        img.src = newsItem.image;
+        img.alt = newsItem.title;
+      }
+      
+      if (title) {
+        title.textContent = newsItem.title;
+      }
+      
+      if (category) {
+        category.textContent = newsItem.category;
+      }
+      
+      if (date) {
+        date.textContent = newsItem.date;
+      }
+      
+      card.setAttribute('onclick', `blogCarousel.goToNews(${newsIndex})`);
+    },
+
+    nextSlide() {
+      if (this.isTransitioning) return;
+      this.currentIndex = (this.currentIndex + 1) % this.totalNews;
+      this.updateCarousel();
+      this.resetAutoPlay();
+    },
+
+    previousSlide() {
+      if (this.isTransitioning) return;
+      this.currentIndex = (this.currentIndex - 1 + this.totalNews) % this.totalNews;
+      this.updateCarousel();
+      this.resetAutoPlay();
+    },
+
+    goToSlide(index) {
+      if (this.isTransitioning || index === this.currentIndex) return;
+      this.currentIndex = index;
+      this.updateCarousel();
+      this.resetAutoPlay();
+    },
+
+    goToNews(newsIndex) {
+      const newsItem = this.newsData[newsIndex];
+      console.log(`Navegando para notícia ${newsItem.id}: ${newsItem.url}`);
+      
+      // Animação de feedback
+      const cards = document.querySelectorAll('.news-card');
+      const targetCard = Array.from(cards).find(card => 
+        card.getAttribute('onclick')?.includes(newsIndex.toString())
+      );
+      
+      if (targetCard) {
+        targetCard.style.transform += ' scale(0.98)';
+        setTimeout(() => {
+          targetCard.style.transform = targetCard.style.transform.replace(' scale(0.98)', '');
+        }, 150);
+      }
+      
+      // Aqui você pode implementar a navegação real
+      // window.location.href = newsItem.url;
+      alert(`Navegando para: ${newsItem.title}`);
+    },
+
+    startAutoPlay() {
+      this.stopAutoPlay();
+      this.autoPlayInterval = setInterval(() => {
+        if (!document.hidden && !this.isTransitioning) {
+          this.nextSlide();
+        }
+      }, 6000);
+    },
+
+    stopAutoPlay() {
+      if (this.autoPlayInterval) {
+        clearInterval(this.autoPlayInterval);
+        this.autoPlayInterval = null;
+      }
+    },
+
+    resetAutoPlay() {
+      this.stopAutoPlay();
+      setTimeout(() => this.startAutoPlay(), 1000);
+    },
+
+    init() {
+      this.updateCarousel();
+      this.startAutoPlay();
+      
+      // Para o auto-play quando o usuário interage
+      const container = document.querySelector('.carousel-container');
+      if (container) {
+        container.addEventListener('mouseenter', () => this.stopAutoPlay());
+        container.addEventListener('mouseleave', () => this.startAutoPlay());
+        
+        // Touch events para mobile
+        let startX = 0;
+        let endX = 0;
+        
+        container.addEventListener('touchstart', (e) => {
+          startX = e.touches[0].clientX;
+          this.stopAutoPlay();
+        }, { passive: true });
+        
+        container.addEventListener('touchend', (e) => {
+          endX = e.changedTouches[0].clientX;
+          const deltaX = startX - endX;
+          
+          if (Math.abs(deltaX) > 50) {
+            if (deltaX > 0) {
+              this.nextSlide();
+            } else {
+              this.previousSlide();
+            }
+          }
+          
+          setTimeout(() => this.startAutoPlay(), 1000);
+        }, { passive: true });
+      }
+      
+      // Atualiza o carousel quando a tela é redimensionada
+      let resizeTimeout;
+      window.addEventListener('resize', () => {
+        clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(() => this.updateCarousel(), 250);
+      });
+      
+      // Navegação por teclado
+      document.addEventListener('keydown', (e) => {
+        if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+        
+        if (e.key === 'ArrowLeft') {
+          e.preventDefault();
+          this.previousSlide();
+        } else if (e.key === 'ArrowRight') {
+          e.preventDefault();
+          this.nextSlide();
+        }
+      });
+      
+      // Pausa auto-play quando a página não está visível
+      document.addEventListener('visibilitychange', () => {
+        if (document.hidden) {
+          this.stopAutoPlay();
+        } else {
+          this.startAutoPlay();
+        }
       });
     }
-
-    // Validação em tempo real
-    const inputs = form.querySelectorAll('input[required], textarea[required]');
-    inputs.forEach(input => {
-      input.addEventListener('blur', function() {
-        if (this.value.trim() === '') {
-          this.style.borderColor = '#e74c3c';
-        } else {
-          this.style.borderColor = '#27ae60';
-        }
-      });
-    });
-  }
+  };
 
   // Inicializa quando o DOM estiver carregado
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', inicializarContatos);
+    document.addEventListener('DOMContentLoaded', () => {
+      blogCarousel.init();
+    });
   } else {
-    inicializarContatos();
+    blogCarousel.init();
   }
 })();

@@ -134,121 +134,347 @@
   `;
   document.head.appendChild(estilo);
 
-  // HTML
   const html = `
     <section id="duvidas-frequentes">
       <div class="container">
         <h2>Dúvidas Frequentes</h2>
         
         <div class="faq-container">
+
           <article class="faq-item">
             <button class="faq-question" aria-expanded="false">
-              O que é o STJD e como funciona?
+              O que é o STJD e qual sua função no futebol brasileiro?
               <span class="faq-icon">+</span>
             </button>
             <div class="faq-answer">
-              <p>O Superior Tribunal de Justiça Desportiva do Futebol (STJD) é o órgão máximo da Justiça Desportiva no futebol brasileiro. É responsável por julgar questões disciplinares, infrações ao Código Brasileiro de Justiça Desportiva e recursos de decisões dos Tribunais de Justiça Desportiva estaduais.</p>
-              <p>O tribunal atua em casos como:</p>
+              <p>O STJD (Superior Tribunal de Justiça Desportiva) é o órgão máximo da Justiça Desportiva no futebol brasileiro. Ele funciona como um tribunal especializado, responsável por aplicar o Código Brasileiro de Justiça Desportiva (CBJD) em competições organizadas pela CBF.</p>
               <ul>
-                <li>Infrações disciplinares de atletas, dirigentes e árbitros</li>
-                <li>Casos de doping</li>
-                <li>Questões relacionadas a fair play financeiro</li>
-                <li>Recursos contra punições aplicadas pelos TJDs</li>
+                <li>Julga infrações disciplinares cometidas por atletas, dirigentes, técnicos e árbitros;</li>
+                <li>Análise de recursos contra decisões de Tribunais de Justiça Desportiva Estaduais (TJDs);</li>
+                <li>Processa casos de doping e manipulação de resultados;</li>
+                <li>Garante a disciplina e a integridade esportiva em todas as competições nacionais.</li>
               </ul>
             </div>
           </article>
 
           <article class="faq-item">
             <button class="faq-question" aria-expanded="false">
-              Como funciona a transferência de jogadores entre clubes?
+              Como funcionam as transferências nacionais e internacionais de jogadores?
               <span class="faq-icon">+</span>
             </button>
             <div class="faq-answer">
-              <p>A transferência de jogadores envolve aspectos contratuais, trabalhistas e regulamentares específicos do futebol. O processo inclui:</p>
+              <p>As transferências seguem regras contratuais, trabalhistas e regulamentos da CBF e da FIFA. São etapas obrigatórias:</p>
               <ul>
-                <li>Rescisão ou liberação do contrato atual</li>
-                <li>Negociação dos valores e condições</li>
-                <li>Registro na CBF e federação estadual</li>
-                <li>Cumprimento das janelas de transferência</li>
-                <li>Pagamento de taxas e impostos devidos</li>
+                <li>Rescisão ou liberação do contrato com o clube atual;</li>
+                <li>Negociação entre clubes e atleta sobre valores, salários e condições;</li>
+                <li>Registro na CBF (no caso de transferências nacionais) ou uso do sistema TMS (Transfer Matching System) da FIFA para internacionais;</li>
+                <li>Respeito às janelas de transferências estabelecidas;</li>
+                <li>Pagamento de taxas, impostos e eventuais direitos de solidariedade e formação;</li>
+                <li>Homologação final pela federação competente.</li>
               </ul>
-              <p>É fundamental contar com assessoria jurídica especializada para garantir que todos os procedimentos sejam cumpridos corretamente.</p>
+              <p>Sem o cumprimento de todas essas etapas, a transferência não é reconhecida oficialmente.</p>
             </div>
           </article>
 
           <article class="faq-item">
             <button class="faq-question" aria-expanded="false">
-              Quais são os direitos trabalhistas dos atletas profissionais?
+              Quais são os direitos e deveres dos atletas profissionais?
               <span class="faq-icon">+</span>
             </button>
             <div class="faq-answer">
-              <p>Os atletas profissionais têm direitos específicos previstos na Lei Pelé (Lei 9.615/98) e na CLT, incluindo:</p>
+              <p>Os atletas profissionais possuem direitos garantidos pela CLT, pela Lei Pelé e pelos contratos assinados. Entre os principais:</p>
               <ul>
-                <li>Registro em carteira de trabalho</li>
-                <li>Salário mínimo garantido</li>
-                <li>13º salário e férias remuneradas</li>
-                <li>FGTS e contribuição previdenciária</li>
-                <li>Seguro de acidentes pessoais</li>
-                <li>Assistência médica e odontológica</li>
-                <li>Direito de imagem (negociação separada)</li>
+                <li>Direitos: salário, férias, 13º, FGTS, direito de imagem, seguro de vida, condições seguras de trabalho, assistência médica e previdenciária;</li>
+                <li>Deveres: cumprir treinamentos e jogos, respeitar regulamentos internos e disciplinares, manter conduta profissional dentro e fora de campo.</li>
               </ul>
+              <p>O equilíbrio entre direitos e deveres é fundamental para evitar conflitos trabalhistas e preservar a carreira.</p>
             </div>
           </article>
 
           <article class="faq-item">
             <button class="faq-question" aria-expanded="false">
-              O que são as SAFs e como impactam os clubes?
+              Quais obrigações trabalhistas os clubes têm em relação aos seus jogadores?
               <span class="faq-icon">+</span>
             </button>
             <div class="faq-answer">
-              <p>As Sociedades Anônimas do Futebol (SAFs) são uma nova modalidade jurídica criada pela Lei 14.193/21, que permite a transformação de clubes em empresas com gestão profissional e captação de investimentos.</p>
-              <p>Principais características:</p>
+              <p>Os clubes são empregadores e, portanto, devem seguir a legislação trabalhista e esportiva. Suas obrigações incluem:</p>
               <ul>
-                <li>Gestão empresarial profissional</li>
-                <li>Possibilidade de abertura de capital</li>
-                <li>Regimes tributários diferenciados</li>
-                <li>Parcelamento de dívidas com a União</li>
-                <li>Separação entre atividade social e futebolística</li>
-              </ul>
-            </div>
-          </article>
-
-          <article class="faq-item">
-            <button class="faq-question" aria-expanded="false">
-              Como funciona o Fair Play Financeiro no Brasil?
-              <span class="faq-icon">+</span>
-            </button>
-            <div class="faq-answer">
-              <p>O Fair Play Financeiro brasileiro foi implementado pela CBF para promover a sustentabilidade financeira dos clubes. As principais regras incluem:</p>
-              <ul>
-                <li>Limite de gastos com salários (70% da receita bruta)</li>
-                <li>Comprovação de quitação de débitos trabalhistas</li>
-                <li>Apresentação de certidões negativas</li>
-                <li>Auditoria independente das demonstrações financeiras</li>
-                <li>Sanções por descumprimento (multas, perda de pontos, etc.)</li>
+                <li>Pagamento de salários em dia, 13º, férias, FGTS e encargos sociais;</li>
+                <li>Garantir a inscrição dos atletas em federações e competições;</li>
+                <li>Oferecer infraestrutura adequada de treinos e jogos;</li>
+                <li>Providenciar assistência médica, odontológica e seguros;</li>
+                <li>Respeitar contratos e condições acordadas, incluindo direitos de imagem;</li>
+                <li>Manter regularidade fiscal e trabalhista para evitar punições.</li>
               </ul>
             </div>
           </article>
 
           <article class="faq-item">
             <button class="faq-question" aria-expanded="false">
-              Quando é necessário contratar um advogado desportivo?
+              O que são as SAFs e quais os impactos para clubes e investidores?
               <span class="faq-icon">+</span>
             </button>
             <div class="faq-answer">
-              <p>A assessoria jurídica especializada é fundamental em diversas situações:</p>
+              <p>A Sociedade Anônima do Futebol (SAF) é um modelo jurídico criado pela Lei 14.193/21. Permite que clubes de futebol se transformem em empresas, profissionalizando a gestão e atraindo investimentos privados.</p>
               <ul>
-                <li>Elaboração e análise de contratos</li>
-                <li>Processos disciplinares nos tribunais desportivos</li>
-                <li>Transferências nacionais e internacionais</li>
-                <li>Questões trabalhistas específicas do esporte</li>
-                <li>Negociação de direitos de imagem e patrocínio</li>
-                <li>Regularização junto às entidades desportivas</li>
-                <li>Casos de doping ou outras infrações</li>
+                <li>Separação entre clube associativo e a SAF, com regras próprias de governança;</li>
+                <li>Possibilidade de captação de recursos via investidores e mercado financeiro;</li>
+                <li>Responsabilidade limitada sobre dívidas antigas;</li>
+                <li>Gestão empresarial profissional e transparente;</li>
+                <li>Maior segurança jurídica para investidores.</li>
               </ul>
-              <p>A prevenção através de consultoria preventiva evita problemas futuros e garante segurança jurídica.</p>
+              <p>Esse modelo pode salvar clubes endividados e modernizar a administração do futebol brasileiro.</p>
             </div>
           </article>
+
+          <article class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              Como funciona o Fair Play Financeiro e quais sanções podem ser aplicadas?
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>O Fair Play Financeiro é um mecanismo de controle que busca equilibrar receitas e despesas dos clubes, evitando dívidas descontroladas.</p>
+              <ul>
+                <li>Exige comprovação de pagamento de dívidas trabalhistas e tributárias;</li>
+                <li>Define limites de gastos com elenco (como percentual da receita bruta);</li>
+                <li>Exige relatórios financeiros auditados;</li>
+                <li>Proíbe registros de atletas quando houver pendências financeiras.</li>
+              </ul>
+              <p>As sanções podem variar de multas e advertências até perda de pontos, bloqueio de registros e exclusão de competições.</p>
+            </div>
+          </article>
+
+          <article class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              Quando um clube, atleta ou agente deve procurar um advogado desportivo?
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>A assessoria jurídica desportiva é fundamental em situações que envolvem contratos, disputas ou interpretações legais. Exemplos:</p>
+              <ul>
+                <li>Assinatura ou rescisão de contratos;</li>
+                <li>Processos disciplinares perante a Justiça Desportiva;</li>
+                <li>Transferências nacionais e internacionais;</li>
+                <li>Questões trabalhistas específicas do esporte;</li>
+                <li>Direito de imagem, marketing e patrocínios;</li>
+                <li>Casos de doping ou punições por infrações.</li>
+              </ul>
+              <p>A prevenção é sempre melhor que o litígio: um advogado especializado evita prejuízos futuros.</p>
+            </div>
+          </article>
+
+          <article class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              Como funciona a rescisão de contrato por justa causa entre clube e atleta?
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>A rescisão por justa causa pode ocorrer por descumprimento grave do contrato por qualquer das partes:</p>
+              <ul>
+                <li>Por parte do clube: atraso reiterado de salários, falta de condições adequadas de trabalho, não registro de contrato;</li>
+                <li>Por parte do atleta: atos de indisciplina, abandono de treinos/jogos, fraude ou má conduta.</li>
+              </ul>
+              <p>É necessário comprovar a justa causa juridicamente para evitar indenizações ou punições.</p>
+            </div>
+          </article>
+
+          <article class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              O que acontece se o clube não registrar o contrato do atleta?
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>Sem registro, o contrato não tem validade perante federações e a CBF, o que gera riscos sérios:</p>
+              <ul>
+                <li>O atleta não pode atuar em competições oficiais;</li>
+                <li>O clube pode sofrer punições administrativas;</li>
+                <li>O jogador fica desprotegido em relação a direitos trabalhistas;</li>
+                <li>Podem ocorrer litígios por vínculo não reconhecido.</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              Como funciona o direito de imagem no futebol para atletas e clubes?
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>O direito de imagem é um contrato à parte do vínculo empregatício. Ele garante ao clube a utilização da imagem do atleta em campanhas, transmissões e publicidade.</p>
+              <ul>
+                <li>Não pode ser confundido com salário, embora muitos clubes utilizem como forma de remuneração;</li>
+                <li>Deve respeitar limites legais para não configurar fraude trabalhista;</li>
+                <li>Garante ao atleta remuneração adicional pela exploração de sua imagem.</li>
+              </ul>
+              <p>É essencial redigir cláusulas claras para evitar questionamentos judiciais.</p>
+            </div>
+          </article>
+
+          <article class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              Quanto tempo costuma durar um processo no STJD ou em tribunais arbitrais?
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>A duração varia conforme a complexidade do caso. Em geral:</p>
+              <ul>
+                <li>Processos disciplinares urgentes (como suspensões) podem ser julgados em poucos dias;</li>
+                <li>Casos de doping ou disputas contratuais podem levar semanas ou meses;</li>
+                <li>Em tribunais arbitrais, a tramitação é geralmente mais rápida que na Justiça comum, mas depende das provas e recursos.</li>
+              </ul>
+              <p>A celeridade é uma característica da Justiça Desportiva para não comprometer competições em andamento.</p>
+            </div>
+          </article>
+
+          <article class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              Quais cuidados um agente deve ter ao intermediar contratos e transferências?
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>O agente esportivo deve atuar de forma ética e transparente. Cuidados essenciais:</p>
+              <ul>
+                <li>Estar registrado na CBF/FIFA como intermediário;</li>
+                <li>Evitar conflito de interesses, representando apenas uma das partes em negociações;</li>
+                <li>Garantir que os contratos respeitem a legislação nacional e internacional;</li>
+                <li>Preservar os interesses do atleta, garantindo cláusulas de proteção;</li>
+                <li>Manter registros documentados de todas as tratativas.</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              Como registrar um jovem atleta e quais documentos são exigidos?
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>O registro de jovens atletas segue critérios específicos das federações. São exigidos:</p>
+              <ul>
+                <li>Contrato de formação ou aprendizagem;</li>
+                <li>Autorização por escrito dos pais ou responsáveis;</li>
+                <li>Exames médicos para comprovar aptidão física;</li>
+                <li>Documentos de identidade do atleta e dos responsáveis;</li>
+                <li>Registro junto à federação estadual e, posteriormente, à CBF.</li>
+              </ul>
+              <p>O processo garante segurança jurídica ao clube e ao atleta em formação.</p>
+            </div>
+          </article>
+
+          <article class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              Quais riscos dirigentes assumem em caso de má gestão administrativa?
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>Dirigentes podem ser responsabilizados civil, trabalhista e até criminalmente em casos de gestão temerária. Exemplos:</p>
+              <ul>
+                <li>Fraudes contábeis e fiscais;</li>
+                <li>Omissão no pagamento de tributos e encargos;</li>
+                <li>Contratações irregulares que gerem prejuízos;</li>
+                <li>Descumprimento de regulamentos desportivos;</li>
+                <li>Responsabilidade solidária por dívidas trabalhistas.</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              Como funcionam as penalidades para manipulação de resultados?
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>A manipulação de resultados é uma das infrações mais graves do esporte. As penalidades incluem:</p>
+              <ul>
+                <li>Multas pesadas aos envolvidos;</li>
+                <li>Suspensão ou banimento de atletas e dirigentes;</li>
+                <li>Perda de pontos ou exclusão de competições para clubes;</li>
+                <li>Consequências criminais, já que é considerada fraude esportiva.</li>
+              </ul>
+              <p>O combate à manipulação é prioridade para preservar a credibilidade do futebol.</p>
+            </div>
+          </article>
+
+          <article class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              Clubes podem ser responsabilizados por dívidas trabalhistas antigas?
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>Sim. Mesmo com troca de gestão, o clube permanece responsável por dívidas antigas. A SAF trouxe mecanismos de separação parcial:</p>
+              <ul>
+                <li>Parte das dívidas permanece com a associação original;</li>
+                <li>A SAF assume compromissos correntes e pode negociar parcelamentos;</li>
+                <li>Apesar disso, existe responsabilidade subsidiária em muitos casos.</li>
+              </ul>
+              <p>O modelo não elimina passivos, apenas organiza o pagamento.</p>
+            </div>
+          </article>
+
+          <article class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              Como patrocinadores e empresas devem se proteger em contratos esportivos?
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>Para garantir retorno sobre o investimento, patrocinadores precisam de contratos sólidos. Recomenda-se:</p>
+              <ul>
+                <li>Definir claramente os direitos de exposição da marca;</li>
+                <li>Prever métricas de entrega (número de jogos, mídias, transmissões);</li>
+                <li>Estabelecer penalidades em caso de descumprimento;</li>
+                <li>Exigir garantias contratuais do clube;</li>
+                <li>Incluir cláusulas de rescisão por má conduta ou rebaixamento da equipe.</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              Quais são as principais diferenças entre contrato de formação e contrato profissional?
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>O contrato de formação é voltado para jovens atletas em desenvolvimento. Já o profissional estabelece vínculo empregatício. Diferenças:</p>
+              <ul>
+                <li><strong>Formação:</strong> natureza educativa, sem salário (pode haver bolsa auxílio), não gera vínculo empregatício, foco em treinar e preparar;</li>
+                <li><strong>Profissional:</strong> vínculo trabalhista, registro em carteira, salário, férias, FGTS, direito de imagem e benefícios legais.</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              Quais são os mecanismos de solidariedade e formação da FIFA e como beneficiam os clubes?
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>A FIFA instituiu mecanismos para valorizar clubes formadores:</p>
+              <ul>
+                <li><strong>Mecanismo de Solidariedade:</strong> até 5% do valor de transferências internacionais é repartido entre clubes que participaram da formação do atleta;</li>
+                <li><strong>Indenização por Formação:</strong> clubes têm direito a compensação quando o jogador assina seu primeiro contrato profissional em outro país.</li>
+              </ul>
+              <p>Esses mecanismos incentivam o investimento em categorias de base.</p>
+            </div>
+          </article>
+
+          <article class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              Como funcionam os processos de antidoping e quais são as consequências jurídicas?
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>O antidoping é regulamentado pela FIFA, CBF e WADA (Agência Mundial Antidoping). O processo funciona assim:</p>
+              <ul>
+                <li>Atletas podem ser testados a qualquer momento, em treinos ou jogos;</li>
+                <li>As amostras são coletadas e analisadas em laboratórios credenciados;</li>
+                <li>Resultados positivos podem gerar suspensão temporária, multas ou perda de títulos;</li>
+                <li>Há possibilidade de recurso dentro dos prazos legais;</li>
+                <li>Os clubes também podem ser responsabilizados se houver falha na supervisão ou na educação dos atletas.</li>
+              </ul>
+              <p>O objetivo é manter a integridade esportiva e a saúde dos atletas, prevenindo o uso de substâncias proibidas.</p>
+            </div>
+          </article>
+
         </div>
       </div>
     </section>
@@ -257,7 +483,7 @@
   // Adiciona no final do <body>
   document.body.insertAdjacentHTML("beforeend", html);
 
-  // Funcionalidades JavaScript
+  // Funcionalidades JavaScript (CORRIGIDO)
   function inicializarFAQ() {
     const faqItems = document.querySelectorAll('.faq-item');
     
@@ -266,9 +492,10 @@
       const answer = item.querySelector('.faq-answer');
       
       question.addEventListener('click', () => {
-        const isActive = item.classList.contains('active');
+        // Verifica se o item atual está ativo
+        const isCurrentlyActive = answer.classList.contains('active');
         
-        // Fecha todas as outras perguntas
+        // Fecha todas as outras perguntas primeiro
         faqItems.forEach(otherItem => {
           if (otherItem !== item) {
             otherItem.classList.remove('active');
@@ -277,12 +504,14 @@
           }
         });
         
-        // Toggle da pergunta atual
-        if (isActive) {
+        // Agora abre ou fecha o item atual
+        if (isCurrentlyActive) {
+          // Se estava ativo, fecha
           item.classList.remove('active');
           answer.classList.remove('active');
           question.setAttribute('aria-expanded', 'false');
         } else {
+          // Se não estava ativo, abre
           item.classList.add('active');
           answer.classList.add('active');
           question.setAttribute('aria-expanded', 'true');

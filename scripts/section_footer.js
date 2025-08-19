@@ -87,8 +87,6 @@
       gap: 0.5rem;
     }
 
-
-
     .footer-about p {
       line-height: 1.6;
       color: rgba(237, 231, 222, 0.9);
@@ -153,8 +151,7 @@
       align-items: center;
       gap: 0.5rem;
       padding: 0.3rem 0;
-    }
-
+}
     .footer-links a::before {
       content: '→';
       opacity: 0;
@@ -179,12 +176,14 @@
       display: flex;
       align-items: center;
       gap: 0.8rem;
+      line-height: 1.5;
     }
 
     .footer-contact .icon {
       font-size: 1.1rem;
       color: var(--ouro);
       min-width: 20px;
+      margin-top: 0.1rem;
     }
 
     .footer-contact a {
@@ -235,10 +234,10 @@
       transition: all 0.3s ease;
       display: flex;
     }
-      .developer-credit a svg{
-        width: 150px;
-      
-      }
+
+    .developer-credit a svg {
+      width: 150px;
+    }
 
     .developer-credit a:hover {
       color: #c4956f;
@@ -278,15 +277,68 @@
       transform: translateY(-1px) scale(1.05);
     }
 
+    /* MELHORIAS PARA MOBILE */
+    @media (max-width: 968px) {
+      .footer-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2.5rem;
+      }
+
+      .footer-about {
+        grid-column: span 2;
+        text-align: center;
+        order: -1;
+      }
+
+      .footer-social {
+        justify-content: center;
+      }
+
+      .footer-section h3::after {
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      .footer-links,
+      .footer-contact {
+        text-align: center;
+      }
+
+      .footer-contact p {
+        justify-content: center;
+        text-align: left;
+        max-width: 280px;
+        margin: 0 auto 0.8rem auto;
+      }
+    }
+
     @media (max-width: 768px) {
       .footer-main {
-        padding: 3rem 1rem 2rem 1rem;
+        padding: 3rem 1.5rem 2rem 1.5rem;
+      }
+
+      .footer-divider {
+        margin-bottom: 2.5rem;
       }
 
       .footer-container {
         grid-template-columns: 1fr;
-        gap: 2.5rem;
+        gap: 3rem;
         text-align: center;
+      }
+
+      .footer-about {
+        grid-column: span 1;
+      }
+
+      .footer-about .logo{
+        text-align: center;
+        justify-content: center;
+      }
+
+      .footer-section h3 {
+        font-size: 1.3rem;
+        margin-bottom: 1.2rem;
       }
 
       .footer-section h3::after {
@@ -296,12 +348,91 @@
 
       .footer-social {
         justify-content: center;
+        gap: 1.2rem;
+      }
+
+      .social-icon {
+        width: 50px;
+        height: 50px;
+      }
+
+      .footer-contact p {
+        justify-content: center;
+        text-align: center;
+        max-width: 320px;
+        margin: 0 auto 1rem auto;
+      }
+
+      .footer-bottom {
+        padding: 1.5rem;
       }
 
       .footer-bottom-content {
         flex-direction: column;
         text-align: center;
+        gap: 1.2rem;
+        align-items: center;
+      }
+
+      .copyright {
+        order: 2;
+        font-size: 0.85rem;
+        line-height: 1.4;
+      }
+
+      .developer-credit {
+        order: 1;
+        font-size: 0.85rem;
+      }
+
+      .developer-credit a svg {
+        width: 120px;
+      }
+
+      .back-to-top {
+        bottom: 2rem;
+        right: 2rem;
+        width: 55px;
+        height: 55px;
+        font-size: 1.4rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .footer-main {
+        padding: 2.5rem 1rem 2rem 1rem;
+      }
+
+      .footer-about .logo {
+        font-size: 1.6rem;
+      }
+
+      .footer-about p {
+        font-size: 0.95rem;
+        line-height: 1.5;
+      }
+
+      .footer-section h3 {
+        font-size: 1.2rem;
+      }
+
+      .footer-social {
         gap: 1rem;
+      }
+
+      .social-icon {
+        width: 45px;
+        height: 45px;
+      }
+
+      .footer-contact p {
+        font-size: 0.9rem;
+        max-width: 280px;
+      }
+
+      .footer-links a {
+        font-size: 0.95rem;
+        justify-content: center;
       }
 
       .back-to-top {
@@ -311,19 +442,18 @@
         height: 50px;
         font-size: 1.3rem;
       }
-    }
 
-    @media (max-width: 480px) {
-      .footer-main {
-        padding: 2.5rem 0.5rem 1.5rem 0.5rem;
+      .footer-bottom {
+        padding: 1.2rem 1rem;
       }
 
-      .footer-about .logo {
-        font-size: 1.5rem;
+      .copyright,
+      .developer-credit {
+        font-size: 0.8rem;
       }
 
-      .footer-section h3 {
-        font-size: 1.2rem;
+      .developer-credit a svg {
+        width: 100px;
       }
     }
 
@@ -356,8 +486,6 @@
     .footer-about .logo:hover {
       animation: glow 2s ease-in-out infinite;
     }
-
- 
   `;
   document.head.appendChild(estilo);
 
@@ -372,21 +500,21 @@
           <div class="footer-section footer-about">
             <div class="logo">Raphael Pitombo</div>
             <p>
-              Advocacia especializada em Direito Desportivo com mais de 17 anos de experiência. 
+              Advocacia especializada em Direito Desportivo com mais de 18 anos de experiência. 
               Defesa jurídica estratégica para atletas, clubes e entidades esportivas.
             </p>
             <div class="footer-social">
-              <a href="https://instagram.com/raphaelpitombo.adv" target="_blank" class="social-icon" title="Instagram">
-                <i class="ph ph-instagram-logo" style="font-size:25px"></i>
+              <a href="https://instagram.com/raphael.pitombo" target="_blank" class="social-icon" title="Instagram">
+                <i class="ph-fill ph-instagram-logo" style="font-size:25px"></i>
               </a>
-              <a href="https://linkedin.com/in/raphaelpitombo" target="_blank" class="social-icon" title="LinkedIn">
-                <i class="ph ph-linkedin-logo" style="font-size:25px"></i>
+              <a href="https://www.linkedin.com/in/raphael-pitombo-2a4ba018b/" target="_blank" class="social-icon" title="LinkedIn">
+                <i class="ph-fill ph-linkedin-logo" style="font-size:25px"></i>
               </a>
-              <a href="https://wa.me/5575999999999" target="_blank" class="social-icon" title="WhatsApp">
-                <i class="ph ph-whatsapp-logo" style="font-size:25px"></i>
+              <a href="https://wa.me/5575999150155" target="_blank" class="social-icon" title="WhatsApp">
+                <i class="ph-fill ph-chats" style="font-size:25px"></i>
               </a>
-              <a href="mailto:contato@raphaelpitombo.adv.br" class="social-icon" title="E-mail">
-                <i class="ph ph-envelope" style="font-size:25px"></i>
+              <a href="mailto:atendimento@rpitombo.com.br" class="social-icon" title="E-mail">
+                <i class="ph-fill ph-envelope" style="font-size:25px"></i>
               </a>
             </div>
           </div>
@@ -408,24 +536,24 @@
           <div class="footer-section footer-contact">
             <h3>Contato</h3>
             <p>
-              <i class="ph ph-map-trifold"></i>
-                Edifício Multiplace - Av. João Durval Carneiro - Cel. Jose Pinto, Feira de Santana - BA
+              <i class="ph ph-map-trifold icon"></i>
+              <span>Edifício Multiplace - Av. João Durval Carneiro - Cel. Jose Pinto, Feira de Santana - BA</span>
             </p>
             <p>
-              <i class="ph ph-phone"></i>
-              <a href="tel:+5575999999999">(75) 9 9999-9999</a>
+              <i class="ph ph-phone icon"></i>
+              <a href="https://wa.me/+5575999150155">(75) 9 9915-0155</a>
             </p>
             <p>
-              <i class="ph ph-envelope-open"></i>
-              <a href="mailto:contato@raphaelpitombo.adv.br">contato@raphaelpitombo.adv.br</a>
+              <i class="ph ph-envelope-open icon"></i>
+              <a href="mailto:atendimento@rpitombo.com.br">atendimento@rpitombo.com.br</a>
             </p>
             <p>
-              <i class="ph ph-clock"></i>
-              Seg a Sex: 8h às 18h
+              <i class="ph ph-clock icon"></i>
+              <span>Seg a Sex: 8h às 18h</span>
             </p>
             <p>
-              <i class="ph ph-scales"></i>
-              OAB: 25185/BA
+              <i class="ph ph-scales icon"></i>
+              <span>OAB: 25185/BA</span>
             </p>
           </div>
         </div>

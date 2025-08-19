@@ -164,7 +164,7 @@
         <div class="conteudo">
           <h2>Dr. Raphael Pitombo</h2>
           <p class="descricao">
-            Advogado com sólida atuação há mais de 17 anos nas áreas trabalhista e desportiva. Ex-presidente da OAB Feira de Santana, atual Secretário-Geral Adjunto da OAB/BA e Procurador no Superior Tribunal de Justiça Desportiva do Futebol (STJD). Especialista em Direito Desportivo pelo CEDIN/MG. Reconhecido por sua defesa firme da advocacia e sua contribuição institucional para o fortalecimento da justiça no interior da Bahia.
+            Advogado com sólida atuação há mais de 18 anos nas áreas trabalhista e desportiva. Ex-presidente da OAB Feira de Santana, atual Secretário-Geral Adjunto da OAB/BA e Procurador no Superior Tribunal de Justiça Desportiva do Futebol (STJD). Especialista em Direito Desportivo pelo CEDIN/MG. Reconhecido por sua defesa firme da advocacia e sua contribuição institucional para o fortalecimento da justiça no interior da Bahia.
           </p>
           <div class="info">
             <div>
