@@ -2,246 +2,269 @@
   // CSS
   const estilo = document.createElement('style');
   estilo.textContent = `
-    :root {
-      --preto: #2b1f1a;
-      --branco: #ede7de;
-      --cinza: #3c3c3c;
-      --marrom: #8c5e3c;
-      --ouro: #ad875d;
-    }
+:root {
+  --preto: #2b1f1a;
+  --branco: #ede7de;
+  --cinza: #3c3c3c;
+  --marrom: #8c5e3c;
+  --ouro: #ad875d;
+}
 
-    #contatos {
-      background: linear-gradient(135deg, var(--preto) 0%, var(--cinza) 100%);
-      color: var(--branco);
-      padding: 4rem 2rem;
-      font-family: 'Montserrat', sans-serif;
-      width: 100%;
-    }
+#contatos {
+  background: linear-gradient(135deg, var(--preto) 0%, var(--cinza) 100%);
+  color: var(--branco);
+  padding: 4rem 2rem;
+  font-family: 'Montserrat', sans-serif;
+  width: 100%;
+}
 
-    #contatos .container {
-      max-width: 1200px;
-      margin: 0 auto;
-    }
+#contatos .container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
 
-    #contatos h2 {
-      font-size: 2.4rem;
-      font-weight: 700;
-      margin-bottom: 3rem;
-      color: var(--ouro);
-      text-align: center;
-    }
+#contatos h2 {
+  font-size: 2.4rem;
+  font-weight: 700;
+  margin-bottom: 3rem;
+  color: var(--ouro);
+  text-align: center;
+}
 
-    .contatos-grid {
-      display: grid;
-      grid-template-columns: 1fr 1.2fr;
-      gap: 3rem;
-      align-items: start;
-    }
+.contatos-grid {
+  display: flex;
+  gap: 1rem;
+  align-items: stretch;
+  min-height: 600px;
+}
 
-    .contatos-info {
-      display: flex;
-      flex-direction: column;
-      gap: 2rem;
-    }
+.contatos-info {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  justify-content: space-between;
+  gap: 1rem;}
 
-    .info-card {
-      background: rgba(173, 135, 93, 0.1);
-      padding: 2rem;
-      border-radius: 15px;
-      border-left: 4px solid var(--ouro);
-      transition: all 0.3s ease;
-    }
+.formulario-container {
+  background: var(--branco);
+  padding: 2.5rem;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  flex: 1;
+  min-width: 400px;
+  display: flex;
+  flex-direction: column;
+}
 
-    .info-card:hover {
-      background: rgba(173, 135, 93, 0.15);
-      transform: translateX(5px);
-    }
+.info-card {
+  background: rgba(173, 135, 93, 0.1);
+  padding: 2rem;
+  border-radius: 15px;
+  border-left: 4px solid var(--ouro);
+  transition: all 0.3s ease;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
 
-    .info-card h3 {
-      font-size: 1.3rem;
-      color: var(--ouro);
-      margin-bottom: 1rem;
-      display: flex;
-      align-items: center;
-      gap: 0.8rem;
-    }
+.info-card:hover {
+  background: rgba(173, 135, 93, 0.15);
+  transform: translateX(5px);
+}
 
-    .info-card p {
-      font-size: 1rem;
-      line-height: 1.6;
-      margin-bottom: 0.8rem;
-    }
+.info-card h3 {
+  font-size: 1.3rem;
+  color: var(--ouro);
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
 
-    .info-card a {
-      color: var(--branco);
-      text-decoration: none;
-      transition: color 0.3s ease;
-    }
+.info-card p {
+  font-size: 1rem;
+  line-height: 1.6;
+}
 
-    .info-card a:hover {
-      color: var(--ouro);
-    }
+.info-card a {
+  color: var(--branco);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
 
-    .social-links {
-      display: flex;
-      gap: 1rem;
-      margin-top: 1rem;
-    }
+.info-card a:hover {
+  color: var(--ouro);
+}
 
-    .social-link {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 50px;
-      height: 50px;
-      background: var(--marrom);
-      border-radius: 50%;
-      color: var(--branco);
-      text-decoration: none;
-      font-size: 1.2rem;
-      transition: all 0.3s ease;
-    }
+.social-links {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
 
-    .social-link:hover {
-      background: var(--ouro);
-      transform: translateY(-3px);
-      box-shadow: 0 6px 15px rgba(173, 135, 93, 0.3);
-    }
+.social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  background: var(--marrom);
+  border-radius: 50%;
+  color: var(--branco);
+  text-decoration: none;
+  font-size: 1.2rem;
+  transition: all 0.3s ease;
+}
 
-    .formulario-container {
-      background: var(--branco);
-      padding: 2.5rem;
-      border-radius: 20px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-    }
+.social-link:hover {
+  background: var(--ouro);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(173, 135, 93, 0.3);
+}
 
-    .formulario-container h3 {
-      font-size: 1.8rem;
-      color: var(--preto);
-      margin-bottom: 1.5rem;
-      text-align: center;
-    }
+.formulario-container h3 {
+  font-size: 1.8rem;
+  color: var(--preto);
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
 
-    .form-group {
-      margin-bottom: 1.5rem;
-    }
+.form-group {
+  margin-bottom: 1.5rem;
+}
 
-    .form-group label {
-      display: block;
-      margin-bottom: 0.5rem;
-      color: var(--preto);
-      font-weight: 600;
-      font-size: 0.95rem;
-    }
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: var(--preto);
+  font-weight: 600;
+  font-size: 0.95rem;
+}
 
-    .form-group input,
-    .form-group select,
-    .form-group textarea {
-      width: 100%;
-      padding: 0.8rem 1rem;
-      border: 2px solid #e0e0e0;
-      border-radius: 8px;
-      font-family: 'Montserrat', sans-serif;
-      font-size: 1rem;
-      transition: all 0.3s ease;
-      background: white;
-    }
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  background: white;
+  box-sizing: border-box;
+}
 
-    .form-group input:focus,
-    .form-group select:focus,
-    .form-group textarea:focus {
-      outline: none;
-      border-color: var(--marrom);
-      box-shadow: 0 0 0 3px rgba(139, 94, 60, 0.1);
-    }
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--marrom);
+  box-shadow: 0 0 0 3px rgba(139, 94, 60, 0.1);
+}
 
-    .form-group textarea {
-      resize: vertical;
-      min-height: 120px;
-    }
+.form-group textarea {
+  resize: vertical;
+  min-height: 120px;
+}
 
-    .form-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1rem;
-    }
+.form-row {
+  display: flex;
+  gap: 1rem;
+}
 
-    .btn-enviar {
-      width: 100%;
-      background: linear-gradient(135deg, var(--marrom), var(--ouro));
-      color: white;
-      border: none;
-      padding: 1rem 2rem;
-      border-radius: 10px;
-      font-family: 'Montserrat', sans-serif;
-      font-size: 1.1rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
+.form-row .form-group {
+  flex: 1;
+}
 
-    .btn-enviar:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 25px rgba(139, 94, 60, 0.3);
-    }
+.btn-enviar {
+  width: 100%;
+  background: linear-gradient(135deg, var(--marrom), var(--ouro));
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 10px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-top: auto;
+}
 
-    .btn-enviar:active {
-      transform: translateY(0);
-    }
+.btn-enviar:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(139, 94, 60, 0.3);
+}
 
-    .success-message {
-      display: none;
-      background: #4CAF50;
-      color: white;
-      padding: 1rem;
-      border-radius: 8px;
-      margin-top: 1rem;
-      text-align: center;
-    }
+.btn-enviar:active {
+  transform: translateY(0);
+}
 
-    .icon {
-      font-size: 1.4rem;
-    }
+.success-message {
+  display: none;
+  background: #4CAF50;
+  color: white;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-top: 1rem;
+  text-align: center;
+}
 
-    @media (max-width: 768px) {
-      #contatos {
-        padding: 3rem 1rem;
-      }
+.icon {
+  font-size: 1.4rem;
+}
 
-      #contatos h2 {
-        font-size: 2rem;
-        margin-bottom: 2rem;
-      }
+@media (max-width: 768px) {
+  #contatos {
+    padding: 3rem 1rem;
+  }
 
-      .contatos-grid {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-      }
+  #contatos h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
 
-      .formulario-container {
-        padding: 2rem;
-      }
+  .contatos-grid {
+    flex-direction: column;
+    gap: 2rem;
+    min-height: auto;
+  }
 
-      .form-row {
-        grid-template-columns: 1fr;
-      }
+  .contatos-info {
+    gap: 1.5rem;
+    justify-content: flex-start;
+  }
 
-      .social-links {
-        justify-content: center;
-      }
-    }
+  .info-card {
+    flex: none;
+  }
 
-    @media (max-width: 480px) {
-      .info-card {
-        padding: 1.5rem;
-      }
+  .formulario-container {
+    padding: 2rem;
+    min-width: auto;
+  }
 
-      .formulario-container {
-        padding: 1.5rem;
-      }
-    }
+  .form-row {
+    flex-direction: column;
+  }
+
+  .social-links {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .info-card {
+    padding: 1.5rem;
+  }
+
+  .formulario-container {
+    padding: 1.5rem;
+  }
+}
   `;
   document.head.appendChild(estilo);
 
@@ -266,7 +289,7 @@
                 allowfullscreen
                 referrerpolicy="no-referrer-when-downgrade"
                 src="https://www.google.com/maps?q=-12.241187,-38.948649&hl=pt-BR&z=14&output=embed">
-              </iframe><br><br>
+              </iframe>
               <p>Edifício Multiplace - Av. João Durval Carneiro - Cel. Jose Pinto, Feira de Santana - BA</p>
 
 
@@ -310,33 +333,6 @@
                 </div>
               </div>
 
-              <div class="form-group">
-                <label for="email">E-mail *</label>
-                <input type="email" id="email" name="email" required>
-              </div>
-
-              <div class="form-row">
-                <div class="form-group">
-                  <label for="tipo-cliente">Você é:</label>
-                  <select id="tipo-cliente" name="tipo-cliente">
-                    <option value="">Selecione...</option>
-                    <option value="atleta">Atleta</option>
-                    <option value="clube">Clube/Entidade</option>
-                    <option value="treinador">Treinador/Staff</option>
-                    <option value="agente">Agente/Empresário</option>
-                    <option value="outro">Outro</option>
-                  </select>
-                </div>
-
-                <div class="form-group">
-                  <label for="urgencia">Urgência:</label>
-                  <select id="urgencia" name="urgencia">
-                    <option value="baixa">Baixa - Consulta geral</option>
-                    <option value="media">Média - Necessito orientação</option>
-                    <option value="alta">Alta - Situação urgente</option>
-                  </select>
-                </div>
-              </div>
 
               <div class="form-group">
                 <label for="assunto">Assunto *</label>

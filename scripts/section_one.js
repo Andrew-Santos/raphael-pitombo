@@ -220,6 +220,11 @@
         font-weight: 600;
       }
     }
+
+    a{
+      color: var(--branco);
+      text-decoration: none;
+    }
   `;
   document.head.appendChild(estilo);
 
@@ -243,11 +248,11 @@
         </div>
         <nav id="menu">
           <ul>
-            <li>Inicio</li>
-            <li>Sobre</li>
-            <li>Atuações</li>
-            <li>Blog</li>
-            <li>Contato</li>
+            <li><a href="#hero">Início</a></li>
+            <li><a href="#sobre-advogado">Sobre</a></li>
+            <li><a href="#areas-atuacao">Atuações</a></li>
+            <li><a href="#blog">Blog</a></li>
+            <li><a href="#contatos">Contato</a></li>
           </ul>
         </nav>
       </header>
@@ -298,3 +303,14 @@
 
   inicializarFuncionalidades();
 })();
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  const logo = document.querySelector("html body section header div#logo");
+  
+  if (logo) {
+    logo.addEventListener("click", () => {
+      location.reload();
+    });
+  }
+});

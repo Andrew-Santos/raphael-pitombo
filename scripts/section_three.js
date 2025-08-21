@@ -282,95 +282,70 @@
 
 const html = `
 <section id="areas-atuacao">
-    <div class="container">
-        <h2>Áreas de Atuação</h2>
-        <p class="subtitle">Expertise jurídica especializada para o mundo do esporte</p>
-        <div class="cards-grid">
+  <div class="container">
+    <h2>Áreas de Atuação</h2>
+    <p class="subtitle">Soluções jurídicas estratégicas para atletas, clubes e empresas do esporte</p>
+    <div class="cards-grid">
 
-            <article class="card">
-                <span class="card-number">01</span>
-                <div class="card-icon">
-                    <i class="ph-fill ph-file-text" style="font-size:40px"></i>
-                </div>
-                <h3>Contratos de atletas, treinadores e agentes</h3>
-                <p>Elaboração, análise e negociação de contratos robustos para atletas, treinadores e agentes, garantindo proteção integral e segurança jurídica.</p>
-            </article>
-
-            <article class="card">
-                <span class="card-number">02</span>
-                <div class="card-icon">
-                    <i class="ph-fill ph-arrows-left-right" style="font-size:40px"> </i>
-                </div>
-                <h3>Transferências e registros</h3>
-                <p>Gestão completa de transferências nacionais e internacionais, registro de atletas e regularização junto às entidades competentes.</p>
-            </article>
-
-            <article class="card">
-                <span class="card-number">03</span>
-                <div class="card-icon">
-                    <i class="ph-fill ph-tag" style="font-size:40px"></i>
-                </div>
-                <h3>Patrocínios, direitos de imagem e marketing esportivo</h3>
-                <p>Negociação estratégica e proteção integral dos direitos de imagem, patrocínios, marketing esportivo e branding pessoal dos atletas.</p>
-            </article>
-
-            <article class="card">
-                <span class="card-number">04</span>
-                <div class="card-icon">
-                    <i class="ph-fill ph-shield-check" style="font-size:40px"></i>
-                </div>
-                <h3>Regularização de clubes e atletas</h3>
-                <p>Consultoria especializada para conformidade legal de clubes, atletas e entidades, garantindo atuação dentro das normas nacionais e internacionais.</p>
-            </article>
-
-            <article class="card">
-                <span class="card-number">05</span>
-                <div class="card-icon">
-                    <i class="ph-fill ph-briefcase" style="font-size:40px"></i>
-                </div>
-                <h3>Direito do trabalho aplicado ao esporte</h3>
-                <p>Assessoria jurídica trabalhista especializada nas relações entre clubes, atletas e funcionários, incluindo contratos e rescisões.</p>
-            </article>
-
-            <article class="card">
-                <span class="card-number">06</span>
-                <div class="card-icon">
-                    <i class="ph-fill ph-lightbulb" style="font-size:40px"></i>
-                </div>
-                <h3>Consultoria preventiva e compliance</h3>
-                <p>Assessoria preventiva para evitar conflitos, garantir conformidade com as normas esportivas e reduzir riscos legais.</p>
-            </article>
-
-            <article class="card">
-                <span class="card-number">07</span>
-                <div class="card-icon">
-                    <i class="ph-fill ph-chart-line-up" style="font-size:40px"></i>
-                </div>
-                <h3>Consultoria estratégica para clubes e atletas</h3>
-                <p>Orientação jurídica para planejamento de carreiras, gestão de contratos, marketing pessoal e desenvolvimento sustentável de clubes e atletas.</p>
-            </article>
-
-            <article class="card">
-                <span class="card-number">08</span>
-                <div class="card-icon">
-                    <i class="ph-fill ph-handshake" style="font-size:40px"></i>
-                </div>
-                <h3>Resolução de conflitos esportivos</h3>
-                <p>Mediação, conciliação e arbitragem para resolver disputas entre clubes, atletas e patrocinadores de forma rápida e segura.</p>
-            </article>
-
-            <article class="card">
-                <span class="card-number">09</span>
-                <div class="card-icon">
-                    <i class="ph-fill  ph-lock-key" style="font-size:40px"></i>
-                </div>
-                <h3>Proteção de inovação e propriedade intelectual</h3>
-                <p>Proteção legal para marcas, tecnologias, aplicativos e soluções inovadoras no esporte, garantindo segurança jurídica e direitos exclusivos.</p>
-            </article>
-
+      <article class="card">
+        <span class="card-number">01</span>
+        <div class="card-icon">
+          <i class="ph-fill ph-file-text" style="font-size:40px"></i>
         </div>
+        <h3>Contratos, Carreira e Rescisões</h3>
+        <p>Elaboração e negociação de contratos personalizados para atletas, técnicos e agentes, com foco em segurança jurídica, valorização de carreira e suporte completo em processos de rescisão contratual.</p>
+      </article>
+
+      <article class="card">
+        <span class="card-number">02</span>
+        <div class="card-icon">
+          <i class="ph-fill ph-arrows-left-right" style="font-size:40px"></i>
+        </div>
+        <h3>Transferências e Registro de Atletas</h3>
+        <p>Assessoria completa em transferências nacionais e internacionais, regularização documental e conformidade junto a federações e entidades reguladoras.</p>
+      </article>
+
+      <article class="card">
+        <span class="card-number">03</span>
+        <div class="card-icon">
+          <i class="ph-fill ph-tag" style="font-size:40px"></i>
+        </div>
+        <h3>Direitos de Imagem e Marketing Esportivo</h3>
+        <p>Proteção e negociação estratégica de direitos de imagem, contratos de patrocínio e projetos de marketing, fortalecendo marcas pessoais e institucionais.</p>
+      </article>
+
+      <article class="card">
+        <span class="card-number">04</span>
+        <div class="card-icon">
+          <i class="ph-fill ph-shield-check" style="font-size:40px"></i>
+        </div>
+        <h3>Governança e Compliance Esportivo</h3>
+        <p>Estruturação legal e regulatória de clubes e entidades, implementação de programas de compliance e conformidade com normas nacionais e internacionais.</p>
+      </article>
+
+    <article class="card">
+  <span class="card-number">05</span>
+  <div class="card-icon">
+    <i class="ph-fill ph-lightbulb" style="font-size:40px"></i>
+  </div>
+  <h3>Inovação e Propriedade Intelectual</h3>
+  <p>Proteção jurídica completa para marcas, tecnologias, plataformas digitais e soluções inovadoras no esporte. Atuação estratégica que garante exclusividade, segurança legal e maximização do valor econômico de ativos intangíveis, desde startups e academias até grandes clubes e projetos internacionais.</p>
+</article>
+
+      <article class="card">
+        <span class="card-number">06</span>
+        <div class="card-icon">
+          <i class="ph-fill ph-handshake" style="font-size:40px"></i>
+        </div>
+        <h3>Consultoria Estratégica</h3>
+        <p>Planejamento jurídico de longo prazo para atletas e clubes, incluindo gestão de carreira, expansão internacional e estruturação de negócios esportivos.</p>
+      </article>
+
     </div>
+  </div>
 </section>
+
+
 `;
 
 
