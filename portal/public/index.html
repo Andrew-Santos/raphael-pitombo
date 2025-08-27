@@ -1,192 +1,201 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portal Criativa</title>
-    <script src="https://unpkg.com/@phosphor-icons/web"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://raphael-pitombo.teamcriativa.com/portal/styles.css">
-    <link rel="shortcut icon" href="https://www.teamcriativa.com/ICONES/favicon.ico" type="image/x-icon">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portal Criativa</title>
+  <link rel="shortcut icon" href="https://www.teamcriativa.com/ICONES/favicon.ico" type="image/x-icon">
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    #bg {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      z-index: -1;
+    }
+    svg {
+      width: 100px;
+      color: #cccccc;
+      position: relative;
+      top: 30px;
+      left: 30px;
+      height: 100%;
+    }
 
+    /* === FORM LOGIN === */
+    .login-container {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 340px;
+      padding: 2.5rem 2rem;
+      border-radius: 18px;
+
+      background: rgba(15, 15, 15, 0.55);
+      backdrop-filter: blur(18px);
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.7);
+
+      text-align: center;
+      color: #fff;
+    }
+
+    .login-container h2 {
+      margin-bottom: 2rem;
+      font-weight: 600;
+      font-size: 1.6rem;
+      color: #f5f5f5;
+      letter-spacing: 0.8px;
+    }
+
+    .input-group {
+      position: relative;
+      margin-bottom: 1.3rem;
+    }
+    .input-group input {
+      width: 100%;
+      padding: 0.9rem 0.9rem 0.9rem 2.5rem;
+      border: none;
+      border-radius: 10px;
+      outline: none;
+      font-size: 0.95rem;
+      background: rgba(255, 255, 255, 0.07);
+      color: #e5e5e5;
+      transition: all 0.3s ease;
+    }
+    .input-group input:focus {
+      background: rgba(255, 255, 255, 0.15);
+      box-shadow: 0 0 0 2px rgba(255,255,255,0.15);
+    }
+    .input-group i {
+      position: absolute;
+      top: 50%;
+      left: 10px;
+      transform: translateY(-50%);
+      font-size: 20px;
+      color: #aaa;
+    }
+
+    .login-container button {
+      width: 100%;
+      padding: 1rem;
+      border: none;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #111, #333);
+      color: #fff;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .login-container button:hover {
+      background: linear-gradient(135deg, #222, #555);
+    }
+
+    .login-container a {
+      display: block;
+      margin-top: 1.5rem;
+      font-size: 0.85rem;
+      color: #aaa;
+      text-decoration: none;
+      cursor: pointer;
+      transition: color 0.2s ease;
+    }
+    .login-container a:hover {
+      color: #fff;
+    }
+
+    /* bloco esqueceu senha */
+    .forgot-box {
+      margin-top: 1rem;
+      padding: 1rem;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255,255,255,0.15);
+      font-size: 0.9rem;
+      color: #eee;
+      display: none;
+      align-items: center;
+      gap: 10px;
+      animation: slideDown 0.4s ease forwards;
+    }
+    .forgot-box i {
+      font-size: 22px;
+      color: #ffb347;
+    }
+    @keyframes slideDown {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+  <!-- phosphor icons -->
+  <script src="https://unpkg.com/phosphor-icons"></script>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <div class="logo">
-                <img src="" alt="" id="logo">
-                <p>Gerenciamento inteligente de mensagens e conteúdo</p>
-            </div>
-        </header>
+  <div id="bg"></div>
+  <img id="logo">
 
-        <nav class="navigation">
-            <button class="nav-btn active" onclick="showSection('messages')" data-section="messages">
-                <i class="ph ph-envelope"></i>
-                <span>Mensagens</span>
-            </button>
-            <button class="nav-btn" onclick="showSection('news')" data-section="news">
-                <i class="ph ph-newspaper"></i>
-                <span>Cadastrar Notícia</span>
-            </button>
-        </nav>
+  <!-- FORM LOGIN -->
+  <div class="login-container">
+    <h2>Entrar</h2>
+    <form>
+      <div class="input-group">
+        <i class="ph-envelope"></i>
+        <input type="email" placeholder="E-mail" required>
+      </div>
+      <div class="input-group">
+        <i class="ph-lock"></i>
+        <input type="password" placeholder="Senha" required>
+      </div>
+      <button type="submit">Login</button>
+      <a id="forgot-link">Esqueceu sua senha?</a>
+      <div class="forgot-box" id="forgot-box">
+        <i class="ph-info"></i> Entre em contato com o administrador.
+      </div>
+    </form>
+  </div>
 
-        <!-- Seção de Mensagens -->
-        <section id="messages" class="section active">
-            <div class="section-header">
-                <div class="section-title">
-                    <i class="ph ph-envelope-open"></i>
-                    <h2>Central de Mensagens</h2>
-                </div>
-            </div>
-            
-            <div class="stats-grid" id="statsGrid">
-                <div class="stat-card">
-                    <div class="stat-icon">
-                        <i class="ph ph-chat-circle"></i>
-                    </div>
-                    <div class="stat-content">
-                        <div class="stat-number" id="totalMessages">0</div>
-                        <div class="stat-label">Total de Mensagens</div>
-                    </div>
-                </div>
- 
-                <div class="stat-card today">
-                    <div class="stat-icon">
-                        <i class="ph ph-calendar-check"></i>
-                    </div>
-                    <div class="stat-content">
-                        <div class="stat-number" id="todayMessages">0</div>
-                        <div class="stat-label">Hoje</div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="messages-wrapper">
-                <div class="messages-container" id="messagesContainer">
-                    <div class="loading-state">
-                        <div class="loading-spinner"></div>
-                        <p>Carregando mensagens...</p>
-                    </div>
-                </div>
-            </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.waves.min.js"></script>
+  <script>
+    VANTA.WAVES({
+      el: "#bg",
+      mouseControls: true,
+      touchControls: true,
+      gyroControls: false,
+      minHeight: 200.00,
+      minWidth: 200.00,
+      scale: 1.00,
+      scaleMobile: 1.00,
+      color: 0x000000,
+      shininess: 25.00,
+      waveHeight: 25.00,
+      waveSpeed: 1.05,
+      zoom: 1.20
+    })
 
-            
-        </section>
-
-        <!-- Seção de Cadastro de Notícias -->
-        <section id="news" class="section">
-            <div class="section-header">
-                <div class="section-title">
-                    <i class="ph ph-plus-circle"></i>
-                    <h2>Cadastrar Nova Notícia</h2>
-                </div>
-            </div>
-            
-            <div class="form-container">
-                <form class="news-form" id="newsForm">
-                    <div class="form-group">
-                        <label for="newsUrl">
-                            <i class="ph ph-link"></i>
-                            Link da Notícia
-                        </label>
-                        <div class="input-group">
-                            <input type="url" id="newsUrl" placeholder="https://exemplo.com/noticia..." required>
-                            <button type="button" class="btn btn-secondary" onclick="loadNewsData()">
-                                <i class="ph ph-download-simple"></i>
-                                Carregar Dados
-                            </button>
-                        </div>
-                    </div>
-
-                    <div class="loading-state" id="loading">
-                        <div class="loading-spinner"></div>
-                        <p>Extraindo informações da notícia...</p>
-                    </div>
-
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="newsTitle">
-                                <i class="ph ph-text-aa"></i>
-                                Título
-                            </label>
-                            <input type="text" id="newsTitle" placeholder="Título será extraído automaticamente">
-                        </div>
-
-                        
-                    </div>
-
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="newsAuthor"><i class="ph ph-user"></i> Autor da Notícia</label>
-                            <input type="text" id="newsAuthor" placeholder="O nome do autor da notícia será extraído automaticamente">
-                        </div>
-                        <div class="form-group">
-                            <label for="photoAuthor"><i class="ph ph-camera"></i> Autor da Foto</label>
-                            <input type="text" id="photoAuthor" placeholder="O nome do fotógrafo será extraído automaticamente">
-                        </div>
-                    </div>
+    // toggle forgot box
+    const forgotLink = document.getElementById("forgot-link")
+    const forgotBox = document.getElementById("forgot-box")
+    forgotLink.addEventListener("click", () => {
+      if(forgotBox.style.display === "flex"){
+        forgotBox.style.display = "none"
+      } else {
+        forgotBox.style.display = "flex"
+      }
+    })
+  </script>
+  <script src="https://www.teamcriativa.com/SCRIPTS/logo.js"></script>
+  <script type="module" src="../js/auth.js"></script>
 
 
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="newsImage">
-                                <i class="ph ph-image"></i>
-                                URL da Imagem
-                            </label>
-                            <input type="url" id="newsImage" placeholder="Imagem será extraída automaticamente">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="newsFavicon">
-                                <i class="ph ph-star"></i>
-                                Favicon
-                            </label>
-                            <input type="url" id="newsFavicon" placeholder="Favicon será extraído automaticamente">
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="newsDate">
-                            <i class="ph ph-calendar"></i>
-                            Data de Publicação
-                        </label>
-                        <input type="datetime-local" id="newsDate">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="newsSource">
-                            <i class="ph ph-building"></i>
-                            Nome da Fonte
-                        </label>
-                        <input type="text" id="newsSource" placeholder="Nome da fonte será extraído automaticamente">
-                    </div>
-
-                    <div class="news-preview" id="newsPreview">
-                        <h3>
-                            <i class="ph ph-eye"></i>
-                            Pré-visualização
-                        </h3>
-                        <div class="preview-card" id="previewCard">
-                            <!-- Preview content will be inserted here -->
-                        </div>
-                    </div>
-
-                    <div class="form-messages">
-                        <div class="message error-message" id="errorMessage"></div>
-                        <div class="message success-message" id="successMessage"></div>
-                    </div>
-
-                    <button type="submit" class="btn btn-primary">
-                        <i class="ph ph-paper-plane-tilt"></i>
-                        Publicar Notícia
-                    </button>
-                </form>
-            </div>
-        </section>
-    </div>
-
-    <script src="https://raphael-pitombo.teamcriativa.com/portal/script.js"></script>
-    <script src="https://www.teamcriativa.com/SCRIPTS/logo.js"></script>
 </body>
 </html>
