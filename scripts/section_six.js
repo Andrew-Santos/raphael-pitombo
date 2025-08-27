@@ -1,4 +1,8 @@
 (function () {
+  // Configuração Supabase
+  const SUPABASE_URL = "https://owpboqevrtthsupugcrt.supabase.co";
+  const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im93cGJvcWV2cnR0aHN1cHVnY3J0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTM5MjY4MDQsImV4cCI6MjA2OTUwMjgwNH0.7RjkVOUT6ByewP0D6FgHQjZDCoi4GYnGT6BMj794MfQ";
+
   // CSS
   const estilo = document.createElement('style');
   estilo.textContent = `
@@ -69,6 +73,40 @@
       z-index: 2;
     }
 
+    .loading-state {
+      text-align: center;
+      padding: 4rem 2rem;
+      color: var(--marrom);
+      font-size: 1.1rem;
+      font-weight: 500;
+    }
+
+    .loading-spinner {
+      width: 50px;
+      height: 50px;
+      border: 4px solid rgba(139, 94, 60, 0.2);
+      border-top: 4px solid var(--marrom);
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin: 0 auto 1.5rem;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .error-state {
+      text-align: center;
+      padding: 4rem 2rem;
+      color: #d32f2f;
+      font-size: 1.1rem;
+      font-weight: 500;
+      background: rgba(211, 47, 47, 0.05);
+      border-radius: 15px;
+      border: 2px solid rgba(211, 47, 47, 0.1);
+    }
+
     .carousel-container {
       display: flex;
       align-items: center;
@@ -118,15 +156,52 @@
         0 0 0 1px rgba(173, 135, 93, 0.1);
     }
 
-    .news-card img {
+    .news-card-image {
       width: 100%;
       height: 100%;
       object-fit: cover;
       transition: transform 0.8s ease;
+      display: block;
     }
 
-    .news-card:hover img {
+    .news-card:hover .news-card-image {
       transform: scale(1.08);
+    }
+
+    .news-source {
+      position: absolute;
+      top: 1.5rem;
+      right: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      padding: 0.5rem 1rem;
+      border-radius: 25px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--preto);
+      font-family: 'Montserrat', sans-serif;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      transition: all 0.3s ease;
+      z-index: 15;
+    }
+
+    .news-card:hover .news-source {
+      background: rgba(173, 135, 93, 0.95);
+      color: white;
+      transform: scale(1.05);
+    }
+
+    .news-source-icon {
+      width: 16px !important;
+      height: 16px !important;
+      border-radius: 3px;
+      object-fit: cover;
+      flex-shrink: 0;
+      display: block;
     }
 
     .news-overlay {
@@ -162,20 +237,6 @@
       width: 100%;
     }
 
-    .news-category {
-      display: inline-block;
-      background: var(--ouro);
-      color: var(--preto);
-      padding: 0.3rem 0.8rem;
-      border-radius: 20px;
-      font-size: 0.75rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      margin-bottom: 0.8rem;
-      font-family: 'Montserrat', sans-serif;
-    }
-
     .news-title {
       color: white;
       font-size: 1.3rem;
@@ -183,7 +244,7 @@
       line-height: 1.3;
       text-shadow: 0 2px 8px rgba(0,0,0,0.7);
       font-family: 'Montserrat', sans-serif;
-      margin: 0;
+      margin: 0 0 0.8rem 0;
       display: -webkit-box;
       -webkit-line-clamp: 3;
       -webkit-box-orient: vertical;
@@ -195,11 +256,27 @@
       -webkit-line-clamp: 2;
     }
 
+    .news-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 0.5rem;
+      width: 100%;
+    }
+
     .news-date {
       color: rgba(255, 255, 255, 0.8);
       font-size: 0.85rem;
-      margin-top: 0.5rem;
       font-weight: 300;
+      margin: 0;
+    }
+
+    .news-author {
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 0.85rem;
+      font-weight: 300;
+      text-align: right;
+      margin: 0;
     }
 
     .carousel-indicators {
@@ -316,6 +393,12 @@
       right: 0;
     }
 
+    .nav-arrow.disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+      pointer-events: none;
+    }
+
     @media (max-width: 768px) {
       #blog {
         padding: 4rem 1rem;
@@ -372,6 +455,18 @@
         transform: translateX(-80px) scale(0.8);
       }
 
+      .news-source {
+        top: 1rem;
+        right: 1rem;
+        padding: 0.4rem 0.8rem;
+        font-size: 0.75rem;
+      }
+
+      .news-source-icon {
+        width: 14px !important;
+        height: 14px !important;
+      }
+
       .nav-arrow {
         width: 50px;
         height: 50px;
@@ -403,6 +498,16 @@
       .news-title {
         font-size: 1.1rem;
       }
+
+      .news-footer {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.3rem;
+      }
+
+      .news-author {
+        text-align: left;
+      }
     }
 
     @media (max-width: 480px) {
@@ -416,65 +521,31 @@
         width: 95%;
         height: 240px;
       }
+
+      .news-source {
+        padding: 0.3rem 0.6rem;
+        font-size: 0.7rem;
+      }
+
+      .news-source-icon {
+        width: 12px !important;
+        height: 12px !important;
+      }
     }
   `;
   document.head.appendChild(estilo);
 
-  // HTML
+  // HTML inicial com loading
   const html = `
     <section id="blog">
       <h2 class="blog-title">Fique por dentro</h2>
       <p class="blog-subtitle">Últimas novidades e insights do direito desportivo</p>
       
-      <div class="carousel-container">
-        <!-- Seta de navegação esquerda -->
-        <button class="nav-arrow prev" onclick="blogCarousel.previousSlide()" aria-label="Notícia anterior">‹</button>
-        
-        <!-- Cards de notícias -->
-        <article class="news-card small" onclick="blogCarousel.goToNews(0)">
-          <img src="https://live.staticflickr.com/65535/54547723823_021b288a9d_5k.jpg" alt="Doping e Sanções">
-          <div class="news-overlay">
-            <div class="news-content">
-              <span class="news-category">Legislação</span>
-              <h3 class="news-title">Doping e Sanções: Análise da Legislação Vigente</h3>
-              <p class="news-date">14 de Agosto, 2025</p>
-            </div>
-          </div>
-        </article>
-
-        <article class="news-card large" onclick="blogCarousel.goToNews(1)">
-          <img src="https://live.staticflickr.com/65535/54546607912_eec6d61fe4_5k.jpg" alt="Fair Play Financeiro">
-          <div class="news-overlay">
-            <div class="news-content">
-              <span class="news-category">CBF</span>
-              <h3 class="news-title">CBF Implementa Novas Regras de Fair Play Financeiro</h3>
-              <p class="news-date">12 de Agosto, 2025</p>
-            </div>
-          </div>
-        </article>
-
-        <article class="news-card small" onclick="blogCarousel.goToNews(2)">
-          <img src="https://live.staticflickr.com/65535/54648407064_365b8dae17_5k.jpg" alt="Lei de Transferências">
-          <div class="news-overlay">
-            <div class="news-content">
-              <span class="news-category">Contratos</span>
-              <h3 class="news-title">Contrato de Jogador: Mudanças na Lei de Transferências</h3>
-              <p class="news-date">10 de Agosto, 2025</p>
-            </div>
-          </div>
-        </article>
-
-        <!-- Seta de navegação direita -->
-        <button class="nav-arrow next" onclick="blogCarousel.nextSlide()" aria-label="Próxima notícia">›</button>
-      </div>
-
-      <!-- Indicadores -->
-      <div class="carousel-indicators">
-        <span class="indicator" onclick="blogCarousel.goToSlide(0)" aria-label="Ir para notícia 1"></span>
-        <span class="indicator active" onclick="blogCarousel.goToSlide(1)" aria-label="Ir para notícia 2"></span>
-        <span class="indicator" onclick="blogCarousel.goToSlide(2)" aria-label="Ir para notícia 3"></span>
-        <span class="indicator" onclick="blogCarousel.goToSlide(3)" aria-label="Ir para notícia 4"></span>
-        <span class="indicator" onclick="blogCarousel.goToSlide(4)" aria-label="Ir para notícia 5"></span>
+      <div id="carousel-content">
+        <div class="loading-state">
+          <div class="loading-spinner"></div>
+          Carregando últimas notícias...
+        </div>
       </div>
     </section>
   `;
@@ -482,59 +553,194 @@
   // Adiciona no final do <body>
   document.body.insertAdjacentHTML("beforeend", html);
 
+  // Função para buscar notícias do Supabase
+  async function fetchNews() {
+    try {
+      const response = await fetch(`${SUPABASE_URL}/rest/v1/form_news?parceiro=eq.1&order=created_at.desc&limit=5`, {
+        headers: {
+          'apikey': SUPABASE_ANON_KEY,
+          'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
+          'Content-Type': 'application/json',
+          'Prefer': 'return=representation'
+        }
+      });
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      const data = await response.json();
+      return data;
+    } catch (error) {
+      console.error('Erro ao buscar notícias:', error);
+      throw error;
+    }
+  }
+
+  // Função para formatar data
+  function formatDate(dateString) {
+    try {
+      const date = new Date(dateString);
+      return date.toLocaleDateString('pt-BR', {
+        day: '2-digit',
+        month: 'long',
+        year: 'numeric'
+      });
+    } catch (error) {
+      return 'Data não disponível';
+    }
+  }
+
+  // Função para extrair nome da fonte
+  function getSourceName(source) {
+    if (!source) return 'Fonte';
+    
+    const sourceMap = {
+      'globoesporte.globo.com': 'Globo Esporte',
+      'ge.globo.com': 'GE',
+      'esporte.uol.com.br': 'UOL Esporte',
+      'www.uol.com.br': 'UOL',
+      'espn.com.br': 'ESPN Brasil',
+      'www.espn.com.br': 'ESPN',
+      'lance.com.br': 'Lance!',
+      'www.lance.com.br': 'Lance!',
+      'sportv.globo.com': 'SporTV',
+      'cbf.com.br': 'CBF',
+      'www.cbf.com.br': 'CBF',
+      'fifa.com': 'FIFA',
+      'conmebol.com': 'CONMEBOL'
+    };
+
+    // Tenta encontrar correspondência exata
+    if (sourceMap[source]) {
+      return sourceMap[source];
+    }
+
+    // Busca por correspondência parcial
+    const lowerSource = source.toLowerCase();
+    for (const [key, name] of Object.entries(sourceMap)) {
+      if (lowerSource.includes(key.toLowerCase()) || key.toLowerCase().includes(lowerSource)) {
+        return name;
+      }
+    }
+
+    // Se não encontrar, retorna a própria fonte formatada
+    return source.replace(/^(https?:\/\/)?(www\.)?/, '').split('/')[0] || 'Fonte';
+  }
+
+  // Função para criar o HTML do carousel
+  function createCarouselHTML(newsData) {
+    if (!newsData || newsData.length === 0) {
+      return `
+        <div class="error-state">
+          <h3>Nenhuma notícia encontrada</h3>
+          <p>Não há notícias disponíveis no momento. Tente novamente mais tarde.</p>
+        </div>
+      `;
+    }
+
+    const indicators = newsData.map((_, index) => 
+      `<span class="indicator ${index === 0 ? 'active' : ''}" onclick="blogCarousel.goToSlide(${index})" aria-label="Ir para notícia ${index + 1}"></span>`
+    ).join('');
+
+    const cards = Array.from({length: 3}, (_, index) => {
+      const newsIndex = index % newsData.length;
+      const news = newsData[newsIndex];
+      const cardClass = index === 1 ? 'large' : 'small';
+      const fallbackImage = 'https://via.placeholder.com/500x300/8c5e3c/ffffff?text=Sem+Imagem';
+      const fallbackFavicon = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNiAxNiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjE2IiBoZWlnaHQ9IjE2IiByeD0iMiIgZmlsbD0iI2FkODc1ZCIvPgo8dGV4dCB4PSI4IiB5PSIxMSIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTAiIGZpbGw9IndoaXRlIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj7wn5OZPC90ZXh0Pgo8L3N2Zz4K';
+      
+      return `
+        <article class="news-card ${cardClass}" onclick="blogCarousel.goToNews(${newsIndex})">
+          <img class="news-card-image" 
+               src="${news.image || fallbackImage}" 
+               alt="${news.title}" 
+               onerror="this.src='${fallbackImage}'">
+          
+          <div class="news-source">
+            <img class="news-source-icon" 
+                 src="${news.favicon || fallbackFavicon}" 
+                 alt="Ícone da fonte"
+                 onerror="this.src='${fallbackFavicon}'">
+            <span>${getSourceName(news.source)}</span>
+          </div>
+
+          <div class="news-overlay">
+            <div class="news-content">
+              <h3 class="news-title">${news.title}</h3>
+              <div class="news-footer">
+                <p class="news-date">${formatDate(news.published_date || news.created_at)}</p>
+                ${news.news_author ? `<p class="news-author">Por: ${news.news_author}</p>` : ''}
+              </div>
+            </div>
+          </div>
+        </article>
+      `;
+    }).join('');
+
+    return `
+      <div class="carousel-container">
+        <button class="nav-arrow prev" onclick="blogCarousel.previousSlide()" aria-label="Notícia anterior">‹</button>
+        ${cards}
+        <button class="nav-arrow next" onclick="blogCarousel.nextSlide()" aria-label="Próxima notícia">›</button>
+      </div>
+      <div class="carousel-indicators">
+        ${indicators}
+      </div>
+    `;
+  }
+
+  // Função para mostrar erro
+  function showError(error) {
+    const content = document.getElementById('carousel-content');
+    if (content) {
+      content.innerHTML = `
+        <div class="error-state">
+          <h3>Erro ao carregar notícias</h3>
+          <p>Ocorreu um erro ao buscar as notícias. Por favor, tente novamente mais tarde.</p>
+          <small>Erro: ${error.message}</small>
+        </div>
+      `;
+    }
+  }
+
   // Objeto global para controlar o carousel
   window.blogCarousel = {
-    // Dados das notícias (você substituirá por dados do banco)
-    newsData: [
-      {
-        id: 1,
-        title: "Flávio Dino determina que PF investigue fraudes em jogos de futebol",
-        category: "Investigação",
-        image: "https://imagens.ebc.com.br/aw-I_Y2OkUmA5Cdd6ZJmEYb1tko=/1170x700/smart/https://agenciabrasil.ebc.com.br/sites/default/files/thumbnails/image/trofeu_campeonato_brasileiro_serie_a.jpeg?itok=uQmZd0io",
-        date: "15 de Agosto, 2025",
-        url: "/noticia/1"
-      },
-      {
-        id: 2,
-        title: "Contrato de Jogador: Mudanças na Lei de Transferências",
-        category: "Contratos",
-        image: "https://live.staticflickr.com/65535/54648407064_365b8dae17_5k.jpg",
-        date: "10 de Agosto, 2025",
-        url: "/noticia/2"
-      },
-      {
-        id: 3,
-        title: "Tribunal de Arbitragem do Esporte: Casos Recentes",
-        category: "Tribunais",
-        image: "https://live.staticflickr.com/65535/54692778271_c468506013_5k.jpg",
-        date: "08 de Agosto, 2025",
-        url: "/noticia/3"
-      },
-      {
-        id: 4,
-        title: "Mercado do futebol exige atenção jurídica: SAFs, imagem de atletas e apostas",
-        category: "SAFs",
-        image: "https://newr7-r7-prod.web.arc-cdn.net/resizer/v2/NRKPQJEA4VCR5HKS4JGAXVKELU.jpeg?auth=0b651a971ca36f96a1b22c9716c35258af47961a1f31948c1c7992ccb858a30c&width=1600&height=896",
-        date: "05 de Agosto, 2025",
-        url: "/noticia/4"
-      },
-      {
-        id: 5,
-        title: "Doping e Sanções: Análise da Legislação Vigente",
-        category: "Legislação",
-        image: "https://live.staticflickr.com/65535/54547723823_021b288a9d_5k.jpg",
-        date: "14 de Agosto, 2025",
-        url: "/noticia/5"
-      }
-    ],
-
+    newsData: [],
     currentIndex: 0,
-    totalNews: 5,
+    totalNews: 0,
     autoPlayInterval: null,
     isTransitioning: false,
 
+    async init() {
+      try {
+        // Busca as notícias
+        this.newsData = await fetchNews();
+        this.totalNews = this.newsData.length;
+
+        if (this.totalNews === 0) {
+          throw new Error('Nenhuma notícia encontrada');
+        }
+
+        // Atualiza o HTML
+        const content = document.getElementById('carousel-content');
+        if (content) {
+          content.innerHTML = createCarouselHTML(this.newsData);
+        }
+
+        // Inicializa o carousel
+        this.updateCarousel();
+        this.startAutoPlay();
+        this.setupEventListeners();
+
+      } catch (error) {
+        console.error('Erro ao inicializar carousel:', error);
+        showError(error);
+      }
+    },
+
     updateCarousel() {
-      if (this.isTransitioning) return;
+      if (this.isTransitioning || this.totalNews === 0) return;
       
       const cards = document.querySelectorAll('.news-card');
       const indicators = document.querySelectorAll('.indicator');
@@ -545,9 +751,8 @@
       if (isMobile) {
         // Versão mobile: apenas um card visível por vez
         cards.forEach((card, index) => {
-          const newsItem = this.newsData[this.currentIndex];
-          
           if (index === 1) { // Card central
+            const newsItem = this.newsData[this.currentIndex];
             this.updateCardContent(card, newsItem, this.currentIndex);
             card.className = 'news-card large';
           } else {
@@ -575,6 +780,18 @@
       indicators.forEach((indicator, index) => {
         indicator.classList.toggle('active', index === this.currentIndex);
       });
+
+      // Atualiza botões de navegação
+      const prevBtn = document.querySelector('.nav-arrow.prev');
+      const nextBtn = document.querySelector('.nav-arrow.next');
+      
+      if (this.totalNews <= 1) {
+        if (prevBtn) prevBtn.classList.add('disabled');
+        if (nextBtn) nextBtn.classList.add('disabled');
+      } else {
+        if (prevBtn) prevBtn.classList.remove('disabled');
+        if (nextBtn) nextBtn.classList.remove('disabled');
+      }
       
       // Reset transition flag
       setTimeout(() => {
@@ -583,13 +800,20 @@
     },
 
     updateCardContent(card, newsItem, newsIndex) {
-      const img = card.querySelector('img');
+      if (!newsItem || !card) return;
+
+      const img = card.querySelector('.news-card-image');
       const title = card.querySelector('.news-title');
-      const category = card.querySelector('.news-category');
+      const sourceIcon = card.querySelector('.news-source-icon');
+      const sourceName = card.querySelector('.news-source span');
       const date = card.querySelector('.news-date');
+      let author = card.querySelector('.news-author');
+      
+      const fallbackImage = 'https://via.placeholder.com/500x300/8c5e3c/ffffff?text=Sem+Imagem';
+      const fallbackFavicon = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNiAxNiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjE2IiBoZWlnaHQ9IjE2IiByeD0iMiIgZmlsbD0iI2FkODc1ZCIvPgo8dGV4dCB4PSI4IiB5PSIxMSIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTAiIGZpbGw9IndoaXRlIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj7wn5OZPC90ZXh0Pgo8L3N2Zz4K';
       
       if (img) {
-        img.src = newsItem.image;
+        img.src = newsItem.image || fallbackImage;
         img.alt = newsItem.title;
       }
       
@@ -597,39 +821,65 @@
         title.textContent = newsItem.title;
       }
       
-      if (category) {
-        category.textContent = newsItem.category;
+      if (sourceIcon) {
+        sourceIcon.src = newsItem.favicon || fallbackFavicon;
+        sourceIcon.alt = 'Ícone da fonte';
+      }
+      
+      if (sourceName) {
+        sourceName.textContent = getSourceName(newsItem.source);
       }
       
       if (date) {
-        date.textContent = newsItem.date;
+        date.textContent = formatDate(newsItem.published_date || newsItem.created_at);
+      }
+      
+      // Gerencia o elemento autor
+      if (newsItem.news_author) {
+        if (author) {
+          author.textContent = `Por: ${newsItem.news_author}`;
+          author.style.display = 'block';
+        } else {
+          // Cria elemento do autor se não existir
+          const newsFooter = card.querySelector('.news-footer');
+          if (newsFooter) {
+            author = document.createElement('p');
+            author.className = 'news-author';
+            author.textContent = `Por ${newsItem.news_author}`;
+            newsFooter.appendChild(author);
+          }
+        }
+      } else if (author) {
+        author.style.display = 'none';
       }
       
       card.setAttribute('onclick', `blogCarousel.goToNews(${newsIndex})`);
     },
 
     nextSlide() {
-      if (this.isTransitioning) return;
+      if (this.isTransitioning || this.totalNews <= 1) return;
       this.currentIndex = (this.currentIndex + 1) % this.totalNews;
       this.updateCarousel();
       this.resetAutoPlay();
     },
 
     previousSlide() {
-      if (this.isTransitioning) return;
+      if (this.isTransitioning || this.totalNews <= 1) return;
       this.currentIndex = (this.currentIndex - 1 + this.totalNews) % this.totalNews;
       this.updateCarousel();
       this.resetAutoPlay();
     },
 
     goToSlide(index) {
-      if (this.isTransitioning || index === this.currentIndex) return;
+      if (this.isTransitioning || index === this.currentIndex || index >= this.totalNews) return;
       this.currentIndex = index;
       this.updateCarousel();
       this.resetAutoPlay();
     },
 
     goToNews(newsIndex) {
+      if (!this.newsData[newsIndex]) return;
+
       const newsItem = this.newsData[newsIndex];
       console.log(`Navegando para notícia ${newsItem.id}: ${newsItem.url}`);
       
@@ -646,12 +896,15 @@
         }, 150);
       }
       
-      // Aqui você pode implementar a navegação real
-      // window.location.href = newsItem.url;
-      alert(`Navegando para: ${newsItem.title}`);
+      // Abre a notícia em nova aba
+      if (newsItem.url) {
+        window.open(newsItem.url, '_blank', 'noopener,noreferrer');
+      }
     },
 
     startAutoPlay() {
+      if (this.totalNews <= 1) return;
+      
       this.stopAutoPlay();
       this.autoPlayInterval = setInterval(() => {
         if (!document.hidden && !this.isTransitioning) {
@@ -672,41 +925,38 @@
       setTimeout(() => this.startAutoPlay(), 1000);
     },
 
-    init() {
-      this.updateCarousel();
-      this.startAutoPlay();
-      
-      // Para o auto-play quando o usuário interage
+    setupEventListeners() {
       const container = document.querySelector('.carousel-container');
-      if (container) {
-        container.addEventListener('mouseenter', () => this.stopAutoPlay());
-        container.addEventListener('mouseleave', () => this.startAutoPlay());
-        
-        // Touch events para mobile
-        let startX = 0;
-        let endX = 0;
-        
-        container.addEventListener('touchstart', (e) => {
-          startX = e.touches[0].clientX;
-          this.stopAutoPlay();
-        }, { passive: true });
-        
-        container.addEventListener('touchend', (e) => {
-          endX = e.changedTouches[0].clientX;
-          const deltaX = startX - endX;
-          
-          if (Math.abs(deltaX) > 50) {
-            if (deltaX > 0) {
-              this.nextSlide();
-            } else {
-              this.previousSlide();
-            }
-          }
-          
-          setTimeout(() => this.startAutoPlay(), 1000);
-        }, { passive: true });
-      }
+      if (!container) return;
+
+      // Para o auto-play quando o usuário interage
+      container.addEventListener('mouseenter', () => this.stopAutoPlay());
+      container.addEventListener('mouseleave', () => this.startAutoPlay());
       
+      // Touch events para mobile
+      let startX = 0;
+      let endX = 0;
+      
+      container.addEventListener('touchstart', (e) => {
+        startX = e.touches[0].clientX;
+        this.stopAutoPlay();
+      }, { passive: true });
+      
+      container.addEventListener('touchend', (e) => {
+        endX = e.changedTouches[0].clientX;
+        const deltaX = startX - endX;
+        
+        if (Math.abs(deltaX) > 50) {
+          if (deltaX > 0) {
+            this.nextSlide();
+          } else {
+            this.previousSlide();
+          }
+        }
+        
+        setTimeout(() => this.startAutoPlay(), 1000);
+      }, { passive: true });
+
       // Atualiza o carousel quando a tela é redimensionada
       let resizeTimeout;
       window.addEventListener('resize', () => {
