@@ -188,63 +188,108 @@
     <button id="logout">Sair</button>
 
     <!-- Substitua o script existente no dashboard.html por este -->
-    <script type="module">
-        import { supabase } from "./js/supabaseClient.js"
+    <!-- Substitua temporariamente o script do dashboard por este para debug -->
+<script type="module">
+    import { supabase } from "./js/supabaseClient.js"
 
-        // 🔒 Proteção de rota aprimorada
-        async function checkAuth() {
-            try {
-                const { data: { session }, error } = await supabase.auth.getSession()
-                
-                if (error) {
-                    console.error("Erro ao verificar sessão:", error)
+    console.log("🔍 Iniciando verificação de autenticação...")
+
+    // 🔒 Proteção de rota com debug detalhado
+    async function checkAuth() {
+        try {
+            console.log("📡 Verificando sessão no Supabase...")
+            
+            const { data: { session }, error } = await supabase.auth.getSession()
+            
+            console.log("📊 Resposta do getSession:")
+            console.log("- Session:", session)
+            console.log("- Error:", error)
+            console.log("- User:", session?.user)
+            console.log("- Expires at:", session?.expires_at)
+            
+            if (error) {
+                console.error("❌ Erro ao verificar sessão:", error)
+                console.log("🔄 Redirecionando para login...")
+                setTimeout(() => {
                     window.location.href = "./index.html"
-                    return false
-                }
-                
-                if (!session) {
-                    console.log("Nenhuma sessão encontrada")
-                    window.location.href = "./index.html"
-                    return false
-                }
-                
-                console.log("Usuário autenticado:", session.user.email)
-                return true
-            } catch (err) {
-                console.error("Erro inesperado:", err)
-                window.location.href = "./index.html"
+                }, 2000) // 2 segundos para ver os logs
                 return false
             }
+            
+            if (!session) {
+                console.log("🚫 Nenhuma sessão encontrada")
+                console.log("🔄 Redirecionando para login em 2 segundos...")
+                setTimeout(() => {
+                    window.location.href = "./index.html"
+                }, 2000)
+                return false
+            }
+            
+            // Verificar se a sessão não expirou
+            if (session.expires_at && new Date(session.expires_at * 1000) < new Date()) {
+                console.log("⏰ Sessão expirada")
+                console.log("🔄 Redirecionando para login...")
+                setTimeout(() => {
+                    window.location.href = "./index.html"
+                }, 2000)
+                return false
+            }
+            
+            console.log("✅ Usuário autenticado:", session.user.email)
+            console.log("🎉 Sessão válida - permanecendo no dashboard")
+            return true
+            
+        } catch (err) {
+            console.error("💥 Erro inesperado:", err)
+            console.log("🔄 Redirecionando para login...")
+            setTimeout(() => {
+                window.location.href = "./index.html"
+            }, 2000)
+            return false
         }
+    }
 
-        // Executa verificação
-        const isAuthenticated = await checkAuth()
+    // Executa verificação
+    console.log("🚀 Executando checkAuth...")
+    const isAuthenticated = await checkAuth()
 
-        // 🔓 Logout aprimorado
-        document.getElementById("logout").addEventListener("click", async () => {
+    // 🔓 Logout
+    const logoutBtn = document.getElementById("logout")
+    if (logoutBtn) {
+        logoutBtn.addEventListener("click", async () => {
+            console.log("👋 Fazendo logout...")
             try {
                 const { error } = await supabase.auth.signOut()
                 if (error) {
-                    console.error("Erro ao fazer logout:", error)
+                    console.error("❌ Erro ao fazer logout:", error)
+                } else {
+                    console.log("✅ Logout realizado com sucesso")
                 }
                 window.location.href = "./index.html"
             } catch (err) {
-                console.error("Erro inesperado no logout:", err)
+                console.error("💥 Erro inesperado no logout:", err)
                 window.location.href = "./index.html"
             }
         })
+    }
 
-        // Listener para mudanças de estado
-        supabase.auth.onAuthStateChange((event, session) => {
-            if (event === 'SIGNED_OUT') {
-                window.location.href = "./index.html"
-            }
-        })
-    </script>
+    // 👂 Listener para mudanças de estado
+    supabase.auth.onAuthStateChange((event, session) => {
+        console.log("🔄 Auth state changed:")
+        console.log("- Event:", event)
+        console.log("- Session:", session?.user?.email)
+        
+        if (event === 'SIGNED_OUT') {
+            console.log("👋 Usuário deslogou - redirecionando...")
+            window.location.href = "./index.html"
+        }
+    })
+</script>
 
 
 
     <script src="https://raphael-pitombo.teamcriativa.com/portal/script.js"></script>
     <script src="https://www.teamcriativa.com/SCRIPTS/logo.js"></script>
 </body>
+
 </html>
