@@ -188,13 +188,24 @@
     <button id="logout">Sair</button>
 
     <script type="module">
-    import { supabase } from "./js/supabaseClient.js"
-
-    document.getElementById("logout").addEventListener("click", async () => {
-        await supabase.auth.signOut()
-        window.location.href = "./index.html"
-    })
+        import { supabase } from "./js/supabaseClient.js"
+        
+        // 🔒 Proteção de rota
+        async function checkAuth() {
+          const { data } = await supabase.auth.getSession()
+          if (!data.session) {
+            window.location.href = "./index.html" // volta pro login
+          }
+        }
+        checkAuth()
+        
+        // 🔓 Logout
+        document.getElementById("logout").addEventListener("click", async () => {
+          await supabase.auth.signOut()
+          window.location.href = "./index.html"
+        })
     </script>
+
 
 
     <script src="https://raphael-pitombo.teamcriativa.com/portal/script.js"></script>
@@ -202,3 +213,4 @@
 </body>
 
 </html>
+
