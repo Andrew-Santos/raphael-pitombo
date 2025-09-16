@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portal Criativa - Dashboard</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+<body>
+  <div class="container">
+    <button id="logout">Sair</button>
+    <header>
+      <div class="logo">
+        <img src="" alt="" id="logo">
+        <p>Gerenciamento inteligente de mensagens e conteúdo</p>
+      </div>
+    </header>
+
+    <nav class="navigation">
+      <button class="nav-btn active" onclick="showSection('messages')" data-section="messages">
+        <i class="ph ph-envelope"></i><span>Mensagens</span>
+      </button>
+      <button class="nav-btn" onclick="showSection('news')" data-section="news">
+        <i class="ph ph-newspaper"></i><span>Cadastrar Notícia</span>
+      </button>
+    </nav>
+
+    <!-- conteúdo omitido para não ficar gigante -->
+    <section id="messages" class="section active">
+      <h2>Central de Mensagens</h2>
+      <div id="messagesContainer"></div>
+    </section>
+  </div>
+
+  <script>
+    // pega token salvo
+    const token = localStorage.getItem("token");
+
+    if (!token) {
+      // se não tiver token, volta pro login
+      window.location.href = "/";
+    }
+
+    // logout
+    document.getElementById("logout").addEventListener("click", () => {
+      localStorage.removeItem("token");
+      window.location.href = "/";
+    });
+
+    // exemplo: buscar mensagens pela API protegida
+    fetch("/api/messages", {
+      headers: {
+        Authorization: "Bearer " + token
+      }
+    })
+      .then(r => r.json())
+      .then(data => {
+        document.getElementById("messagesContainer").innerText = JSON.stringify(data);
+      });
+  </script>
+</body>
+</html>

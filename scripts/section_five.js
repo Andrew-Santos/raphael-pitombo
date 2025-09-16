@@ -278,21 +278,7 @@
             </div>
           </article>
 
-          <article class="faq-item">
-            <button class="faq-question" aria-expanded="false">
-              O que acontece se o clube não registrar o contrato do atleta?
-              <span class="faq-icon">+</span>
-            </button>
-            <div class="faq-answer">
-              <p>Sem registro, o contrato não tem validade perante federações e a CBF, o que gera riscos sérios:</p>
-              <ul>
-                <li>O atleta não pode atuar em competições oficiais;</li>
-                <li>O clube pode sofrer punições administrativas;</li>
-                <li>O jogador fica desprotegido em relação a direitos trabalhistas;</li>
-                <li>Podem ocorrer litígios por vínculo não reconhecido.</li>
-              </ul>
-            </div>
-          </article>
+
 
           <article class="faq-item">
             <button class="faq-question" aria-expanded="false">
@@ -310,21 +296,6 @@
             </div>
           </article>
 
-          <article class="faq-item">
-            <button class="faq-question" aria-expanded="false">
-              Quanto tempo costuma durar um processo no STJD ou em tribunais arbitrais?
-              <span class="faq-icon">+</span>
-            </button>
-            <div class="faq-answer">
-              <p>A duração varia conforme a complexidade do caso. Em geral:</p>
-              <ul>
-                <li>Processos disciplinares urgentes (como suspensões) podem ser julgados em poucos dias;</li>
-                <li>Casos de doping ou disputas contratuais podem levar semanas ou meses;</li>
-                <li>Em tribunais arbitrais, a tramitação é geralmente mais rápida que na Justiça comum, mas depende das provas e recursos.</li>
-              </ul>
-              <p>A celeridade é uma característica da Justiça Desportiva para não comprometer competições em andamento.</p>
-            </div>
-          </article>
 
           <article class="faq-item">
             <button class="faq-question" aria-expanded="false">
@@ -343,23 +314,7 @@
             </div>
           </article>
 
-          <article class="faq-item">
-            <button class="faq-question" aria-expanded="false">
-              Como registrar um jovem atleta e quais documentos são exigidos?
-              <span class="faq-icon">+</span>
-            </button>
-            <div class="faq-answer">
-              <p>O registro de jovens atletas segue critérios específicos das federações. São exigidos:</p>
-              <ul>
-                <li>Contrato de formação ou aprendizagem;</li>
-                <li>Autorização por escrito dos pais ou responsáveis;</li>
-                <li>Exames médicos para comprovar aptidão física;</li>
-                <li>Documentos de identidade do atleta e dos responsáveis;</li>
-                <li>Registro junto à federação estadual e, posteriormente, à CBF.</li>
-              </ul>
-              <p>O processo garante segurança jurídica ao clube e ao atleta em formação.</p>
-            </div>
-          </article>
+
 
           <article class="faq-item">
             <button class="faq-question" aria-expanded="false">
@@ -395,21 +350,7 @@
             </div>
           </article>
 
-          <article class="faq-item">
-            <button class="faq-question" aria-expanded="false">
-              Clubes podem ser responsabilizados por dívidas trabalhistas antigas?
-              <span class="faq-icon">+</span>
-            </button>
-            <div class="faq-answer">
-              <p>Sim. Mesmo com troca de gestão, o clube permanece responsável por dívidas antigas. A SAF trouxe mecanismos de separação parcial:</p>
-              <ul>
-                <li>Parte das dívidas permanece com a associação original;</li>
-                <li>A SAF assume compromissos correntes e pode negociar parcelamentos;</li>
-                <li>Apesar disso, existe responsabilidade subsidiária em muitos casos.</li>
-              </ul>
-              <p>O modelo não elimina passivos, apenas organiza o pagamento.</p>
-            </div>
-          </article>
+
 
           <article class="faq-item">
             <button class="faq-question" aria-expanded="false">
@@ -442,38 +383,7 @@
             </div>
           </article>
 
-          <article class="faq-item">
-            <button class="faq-question" aria-expanded="false">
-              Quais são os mecanismos de solidariedade e formação da FIFA e como beneficiam os clubes?
-              <span class="faq-icon">+</span>
-            </button>
-            <div class="faq-answer">
-              <p>A FIFA instituiu mecanismos para valorizar clubes formadores:</p>
-              <ul>
-                <li><strong>Mecanismo de Solidariedade:</strong> até 5% do valor de transferências internacionais é repartido entre clubes que participaram da formação do atleta;</li>
-                <li><strong>Indenização por Formação:</strong> clubes têm direito a compensação quando o jogador assina seu primeiro contrato profissional em outro país.</li>
-              </ul>
-              <p>Esses mecanismos incentivam o investimento em categorias de base.</p>
-            </div>
-          </article>
 
-          <article class="faq-item">
-            <button class="faq-question" aria-expanded="false">
-              Como funcionam os processos de antidoping e quais são as consequências jurídicas?
-              <span class="faq-icon">+</span>
-            </button>
-            <div class="faq-answer">
-              <p>O antidoping é regulamentado pela FIFA, CBF e WADA (Agência Mundial Antidoping). O processo funciona assim:</p>
-              <ul>
-                <li>Atletas podem ser testados a qualquer momento, em treinos ou jogos;</li>
-                <li>As amostras são coletadas e analisadas em laboratórios credenciados;</li>
-                <li>Resultados positivos podem gerar suspensão temporária, multas ou perda de títulos;</li>
-                <li>Há possibilidade de recurso dentro dos prazos legais;</li>
-                <li>Os clubes também podem ser responsabilizados se houver falha na supervisão ou na educação dos atletas.</li>
-              </ul>
-              <p>O objetivo é manter a integridade esportiva e a saúde dos atletas, prevenindo o uso de substâncias proibidas.</p>
-            </div>
-          </article>
 
         </div>
       </div>

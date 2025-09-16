@@ -67,6 +67,26 @@ body {
     background-color: var(--bg-secondary);
     min-height: 100vh;
 }
+#logout{
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    padding: 0.5rem 1rem;
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    border-radius: var(--radius);
+    cursor: pointer;
+    transition: var(--transition);
+    z-index: 1000;&:hover {
+        transform: scale(1.05);
+        
+        
+    }&:active {
+        transform: scale(0.95);
+        
+    }
+}
 
 div.logo svg{
     width: 200px;
