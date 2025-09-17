@@ -566,7 +566,7 @@
             © 2025 Dr. Raphael Pitombo - Advocacia Desportiva. Todos os direitos reservados.
           </div>
           <div class="developer-credit">
-            Desenvolvido por<a href="https://seusite.com" target="_blank"><img id="logo"></a> 
+            Desenvolvido por<a href="https://teamcriativa.com" target="_blank"><img id="logo"></a> 
           </div>
         </div>
       </div>
@@ -668,4 +668,5 @@
   } else {
     inicializarFooter();
   }
+
 })();
